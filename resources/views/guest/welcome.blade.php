@@ -20,12 +20,54 @@
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control form-control-lg"
                                             placeholder="Enter tracking number" aria-label="Tracking number"
-                                            aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-secondary" type="submit"
-                                            id="button-addon2">Track</button>
+                                            aria-describedby="trackingInput">
+                                        <button class="btn btn-outline-secondary" type="submit" id="trackingInput"
+                                            style="border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">Track</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- About --}}
+    <div class="container-fluid overflow-hidden py-5 px-lg-0">
+        <div class="container about py-5 px-lg-0" id="about">
+            <div class="row g-5 mx-lg-0">
+                <div class="col-lg-6 ps-lg-0 wow fadeInLeft" data-wow-delay="0.1s" style="min-height: 400px">
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{ asset('images/boxed.jpg') }}"
+                            style="object-fit: cover" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
+                    <h1 class="mb-5">Premium Transport and Logistics Solutions</h1>
+                    <p class="mb-5">
+                        We are a premium logistics company that provides top-notch logistics solutions to our clients.
+                        Our services include air freight, sea freight, road freight, warehousing, and customs clearance.
+                        We are committed to providing efficient and reliable logistics solutions to our clients.
+                    </p>
+                    <div class="row g-4 mb-5">
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                            <h5>Global Coverage</h5>
+                            <p class="m-0">
+                                We provide logistics solutions to clients across the globe. Our global coverage ensures
+                                that we can deliver your goods to any location.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                            <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                            <h5>On Time Delivery</h5>
+                            <p class="m-0">
+                                We are committed to delivering your goods on time. Our logistics solutions are designed
+                                to
+                                ensure that your goods reach their destination on time.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -107,9 +149,9 @@
                         @foreach (config('meta.faq.questions') as $question => $answer)
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id={{ 'flush-heading' . $i }}>
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target={{ '#flush-collapse' . $i }} aria-expanded="false"
-                                        aria-controls={{ 'flush-collapse' . $i }}>
+                                    <button class="accordion-button collapsed" type="button"
+                                        data-bs-toggle="collapse" data-bs-target={{ '#flush-collapse' . $i }}
+                                        aria-expanded="false" aria-controls={{ 'flush-collapse' . $i }}>
                                         {{ $question }}
                                     </button>
                                 </h2>

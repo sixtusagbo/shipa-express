@@ -16,6 +16,7 @@
                     <a href="/rate" class="dropdown-item">Rate</a>
                 </div>
             </div>
+            <a href="/#about" class="nav-item nav-link">About</a>
             <a href="/contact" class="nav-item nav-link">Contact</a>
             <div class="nav-item nav-link" id="google_translate_element" style="cursor: pointer"></div>
         </div>
