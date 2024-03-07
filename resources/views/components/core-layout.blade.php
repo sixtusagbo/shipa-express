@@ -66,7 +66,7 @@
     <script src="{{ asset('third-party/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('third-party/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('third-party/owlcarousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}?v={{ time() }}"></script>
 </body>
 
 </html>

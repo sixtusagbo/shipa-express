@@ -7,8 +7,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="/" class="nav-item nav-link active">Home</a>
-            <a href="/tracking" class="nav-item nav-link">Track</a>
+            <a href="/" class="nav-item nav-link @if (request()->is('/')) active @endif">Home</a>
+            <a href="/monitor-shipment"
+                class="nav-item nav-link @if (request()->is('monitor-shipment')) active @endif">Track</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shipping</a>
                 <div class="dropdown-menu fade-up m-0">
@@ -16,8 +17,8 @@
                     <a href="/rate" class="dropdown-item">Rate</a>
                 </div>
             </div>
-            <a href="/#about" class="nav-item nav-link">About</a>
-            <a href="/contact" class="nav-item nav-link">Contact</a>
+            <a href="/#about" class="nav-item nav-link" id="about-link">About</a>
+            <a href="/contact" class="nav-item nav-link @if (request()->is('contact')) active @endif">Contact</a>
             <div class="nav-item nav-link" id="google_translate_element" style="cursor: pointer"></div>
         </div>
     </div>
