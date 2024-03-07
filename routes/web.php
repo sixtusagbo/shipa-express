@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [GuestController::class, 'welcome']);
+
+Route::get('/contact', [GuestController::class, 'contact']);
+
+Route::post('/contact', [GuestController::class, 'send_contact_mail']);

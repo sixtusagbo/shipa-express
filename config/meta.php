@@ -6,6 +6,9 @@ return [
     'phone' => '+012 345 6789',
     'email' => 'support@shipa.com',
   ],
+  'admin' => [
+    'email' => 'miracleagbosixtus@gmail.com',
+  ],
   'socials' => [
     'display' => false,
     'facebook' => 'https://www.facebook.com/shipa',
