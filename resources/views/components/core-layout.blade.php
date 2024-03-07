@@ -46,7 +46,19 @@
     <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-0 back-to-top"><i
             class="bi bi-arrow-up"></i></a>
 
+    {{-- Google Translate --}}
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
 
+    {{-- Scripts --}}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('third-party/wow/wow.min.js') }}"></script>

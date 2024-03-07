@@ -14,12 +14,10 @@
                 <div class="dropdown-menu fade-up m-0">
                     <a href="/shipping/new" class="dropdown-item">Ship Now</a>
                     <a href="/rate" class="dropdown-item">Rate</a>
-                    <a href="/foobar" class="dropdown-item">404 Page</a>
                 </div>
             </div>
             <a href="/contact" class="nav-item nav-link">Contact</a>
+            <div class="nav-item nav-link" id="google_translate_element" style="cursor: pointer"></div>
         </div>
-        <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-primary me-3"></i>+012 345 6789
-        </h4>
     </div>
 </nav>
