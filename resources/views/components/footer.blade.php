@@ -3,9 +3,11 @@
         <div class="row g-5">
             <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Address</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ config('meta.company.address') }}</p>
+                <a class="mb-2 d-block" href="tel:{{ str_replace(' ', '', config('meta.company.phone')) }}"><i
+                        class="fa fa-phone-alt me-3"></i>{{ config('meta.company.phone') }}</a>
+                <a class="mb-2 d-block" href="mailto:{{ config('meta.company.email') }}"><i
+                        class="fa fa-envelope me-3"></i>{{ config('meta.company.email') }}</a>
                 @if (config('meta.socials.display'))
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href="{{ config('meta.socials.twitter') }}"><i
