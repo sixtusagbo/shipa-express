@@ -3,7 +3,7 @@
     <div class="container-fluid p-0 pb-5">
         <div class="owl-carousel header-carousel position-relative mb-5">
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{ asset('images/carousel-1.jpg') }}" alt="">
+                <img class="img-fluid" src="{{ asset('images/carousel-2.jpg') }}" alt="">
                 <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
                     style="background: rgba(6, 3, 21, .5);">
                     <div class="container">
@@ -52,14 +52,6 @@
                         We are committed to providing efficient and reliable logistics solutions to our clients.
                     </p>
                     <div class="row g-4 mb-5">
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                            <i class="fa fa-globe fa-3x text-primary mb-3"></i>
-                            <h5>Global Coverage</h5>
-                            <p class="m-0">
-                                We provide logistics solutions to clients across the globe. Our global coverage ensures
-                                that we can deliver your goods to any location.
-                            </p>
-                        </div>
                         <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
                             <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
                             <h5>On Time Delivery</h5>
@@ -67,6 +59,14 @@
                                 We are committed to delivering your goods on time. Our logistics solutions are designed
                                 to
                                 ensure that your goods reach their destination on time.
+                            </p>
+                        </div>
+                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                            <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                            <h5>Global Coverage</h5>
+                            <p class="m-0">
+                                We provide logistics solutions to clients across the globe. Our global coverage ensures
+                                that we can deliver your goods to any location.
                             </p>
                         </div>
                     </div>
