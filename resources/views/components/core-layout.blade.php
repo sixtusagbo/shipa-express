@@ -71,6 +71,9 @@
     <script src="{{ asset('third-party/waypoints/waypoints.min.js') }}"></script>
     <script src="{{ asset('third-party/counterup/counterup.min.js') }}"></script>
     <script src="{{ asset('third-party/owlcarousel/owl.carousel.min.js') }}"></script>
+    <script
+        src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=false"
+        type="text/javascript"></script>
 </body>
 
 </html>
