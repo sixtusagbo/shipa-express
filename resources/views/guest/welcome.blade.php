@@ -91,7 +91,7 @@
                             Our process begins from the parcel departure. We ensure a smooth and timely departure of
                             your parcel to its destination.
                         </p>
-                        <a href="/tracking" class="btn btn-primary">Track</a>
+                        <a href="/monitor-shipment" class="btn btn-primary">Track</a>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -102,7 +102,7 @@
                             We handle all customs check to ensure parcel reaches its destination without any legal
                             issues. We ensure all customs requirements are met. `
                         </p>
-                        <a href="/tracking" class="btn btn-primary">Track</a>
+                        <a href="/monitor-shipment" class="btn btn-primary">Track</a>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -113,7 +113,7 @@
                             Your parcel is now on its way. With our real-time tracking system, you can monitor the
                             progress of your parcel as it travels to its destination.
                         </p>
-                        <a href="/tracking" class="btn btn-primary">Track</a>
+                        <a href="/monitor-shipment" class="btn btn-primary">Track</a>
                     </div>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -124,7 +124,7 @@
                             Our local delivery personnels take it from here. We ensure a safe and timely delivery. Thank
                             you for choosing our service.
                         </p>
-                        <a href="/tracking" class="btn btn-primary">Track</a>
+                        <a href="/monitor-shipment" class="btn btn-primary">Track</a>
                     </div>
                 </div>
             </div>

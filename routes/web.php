@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GuestController;
+use App\Http\Controllers\ShipmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Guest routes
 Route::get('/', [GuestController::class, 'welcome']);
-
 Route::get('/contact', [GuestController::class, 'contact']);
-
 Route::post('/contact', [GuestController::class, 'send_contact_mail']);
+Route::get('/monitor-shipment', [ShipmentController::class, 'index']);

@@ -22,8 +22,8 @@
 
     <link href="{{ asset('third-party/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('third-party/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap.min.css') }}?v={{ time() }}" rel="stylesheet">
-    {{-- @vite('resources/sass/bootstrap.scss') --}}
+    {{-- <link href="{{ asset('css/bootstrap.min.css') }}?v={{ time() }}" rel="stylesheet"> --}}
+    @vite('resources/sass/bootstrap.scss')
     <link href="{{ asset('css/style.css') }}?v={{ time() }}" rel="stylesheet">
 
     @vite('resources/js/app.js')
