@@ -43,7 +43,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>

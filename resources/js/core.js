@@ -1,5 +1,4 @@
 import "./bootstrap";
-import "./tracking";
 
 (function ($) {
     "use strict";
