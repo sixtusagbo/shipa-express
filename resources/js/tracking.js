@@ -7,10 +7,20 @@ import "@yaireo/tagify/dist/tagify.css";
         "textarea[name=tracking_numbers]"
     );
 
+    const trackingPattern = new RegExp(
+        trackingCodeInput.dataset.trackingPattern
+    );
+    const keepInvalidNumbers = trackingCodeInput.dataset.kit;
+
     // initialize Tagify on the above input node reference
     const tagify = new Tagify(trackingCodeInput, {
         maxTags: 20,
         duplicates: false,
+        pattern: trackingPattern,
+        keepInvalidTags: keepInvalidNumbers,
+        texts: {
+            pattern: "Invalid tracking number",
+        },
     });
 
     // Last status height for tracking status line margin bottom

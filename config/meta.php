@@ -27,4 +27,11 @@ return [
       'How can I contact support?' => 'You can contact our support team by sending an email to {support_email} or by calling {support_phone}.',
     ],
   ],
+  'tracking' => [
+    'title' => 'Monitor Your Shipment',
+    'short' => 'Track',
+    'placeholder' => 'Up to 20 tracking numbers, separated by comma.',
+    'button' => 'Track',
+    'keep_invalid_numbers' => false,
+  ],
 ];

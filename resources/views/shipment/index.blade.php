@@ -2,9 +2,9 @@
     <div class="container-fluid overflow-hidden py-5 px-lg-0">
         <div class="container py-5 px-lg-0">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Track</h6>
+                <h6 class="text-secondary text-uppercase">{{ config('meta.tracking.short') }}</h6>
                 <h1 class="mb-4">
-                    Monitor your shipment
+                    {{ config('meta.tracking.title') }}
                 </h1>
             </div>
 
@@ -12,11 +12,15 @@
                 <div class="col-12 col-lg-6">
                     <form action="">
                         <div class="form-group mb-3">
-                            <textarea class="form-control" placeholder="Up to 20 tracking numbers, separated by comma." name="tracking_numbers">
+                            <textarea class="form-control" placeholder="{{ config('meta.tracking.placeholder') }}" name="tracking_numbers"
+                                data-tracking-pattern="{{ \App\Models\Shipment::trackingNumberValidationRegex() }}"
+                                data-kit="{{ config('meta.tracking.keep_invalid_numbers') }}">
                             </textarea>
                         </div>
                         <div class="col-12">
-                            <button class="btn btn-primary w-100" type="submit">Track</button>
+                            <button class="btn btn-primary w-100" type="submit">
+                                {{ config('meta.tracking.button') }}
+                            </button>
                         </div>
                     </form>
                 </div>
