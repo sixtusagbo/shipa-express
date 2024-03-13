@@ -186,3 +186,10 @@
     }
   }
 }
+
+.waybill-title {
+  span {
+    color: $body-color !important;
+    font-weight: normal !important;
+  }
+}

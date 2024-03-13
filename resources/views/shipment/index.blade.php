@@ -35,8 +35,47 @@
                     <div class="pkg-card">
                         <div class="pkg-card-header">
                             <p>Waybill number: <span class="track_number">NG125125346R</span></p>
-                            <button type="button" class="btn btn-primary">
-                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                            <div class="modal fade" id="waybillInfo" data-bs-keyboard="false" tabindex="-1"
+                                aria-labelledby="waybillInfoLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5 waybill-title" id="waybillInfoLabel">
+                                                <span>Waybill:</span> NG125125346R
+                                            </h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body p-0">
+                                            <div class="table-responsive">
+                                                <table class="table table-striped">
+                                                    <tbody>
+                                                        <tr>
+                                                            <th scope="row">Name:</th>
+                                                            <td>Someone</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Name:</th>
+                                                            <td>Someone</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Name:</th>
+                                                            <td>Someone</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer border-top-0 pt-0">
+                                            <button type="button" class="btn btn-primary"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#waybillInfo">
+                                <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
                             </button>
                         </div>
                         <ul class="status-list">
@@ -85,7 +124,7 @@
                         <div class="pkg-card-header">
                             <p>Waybill number: <span class="track_number">NG125125346R</span></p>
                             <button type="button" class="btn btn-primary">
-                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                                <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
                             </button>
                         </div>
                         <ul class="status-list">
@@ -133,7 +172,7 @@
                         <div class="pkg-card-header">
                             <p>Waybill number: <span class="track_number">NG125125346R</span></p>
                             <button type="button" class="btn btn-primary">
-                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                                <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
                             </button>
                         </div>
                         <ul class="status-list">

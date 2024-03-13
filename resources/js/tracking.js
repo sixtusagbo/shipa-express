@@ -3,7 +3,9 @@ import "@yaireo/tagify/dist/tagify.css";
 
 (function ($) {
     $("#trackingFormError").hide();
-    $(".shipments").empty();
+    // Hide all statuses except the first one
+    $(".pkg-card .status-list .status").not(":first-of-type").hide();
+    // $(".shipments").empty();
 
     // Tracking code textarea input
     const trackingCodeInput = document.querySelector(
