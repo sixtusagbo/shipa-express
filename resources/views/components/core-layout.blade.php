@@ -27,8 +27,7 @@
     @vite('resources/sass/bootstrap.scss')
     @vite('resources/css/design.css')
 
-    @vite('resources/js/core.js')
-    @vite('resources/js/tracking.js')
+    @vite('resources/js/app.js')
 </head>
 
 <body>

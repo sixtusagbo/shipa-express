@@ -34,7 +34,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -51,7 +51,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -59,13 +59,13 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
                         </ul>
-                        <p class="toggle pkg-card-footer">
-                            Collapse
+                        <p class="pkg-card-footer">
+                            <span>Collapse</span>
                             <i class="fa-regular fa-chevron-down"></i>
                         </p>
                     </div>
@@ -74,12 +74,12 @@
                             Waybill number: <span class="track_number">NG125125346R</span>
                         </p>
                         <ul class="status-list">
-                            <li class="status delivered">
-                                <i class="fas fa-check"></i>
+                            <li class="status">
+                                <i class="fa-solid fa-truck-fast"></i>
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -88,7 +88,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -96,7 +96,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -104,13 +104,13 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
                         </ul>
-                        <p class="toggle pkg-card-footer">
-                            Collapse
+                        <p class="pkg-card-footer">
+                            <span>Collapse</span>
                             <i class="fa-regular fa-chevron-down"></i>
                         </p>
                     </div>
@@ -119,21 +119,11 @@
                             Waybill number: <span class="track_number">NG125125346R</span>
                         </p>
                         <ul class="status-list">
-                            <li class="status delivered">
-                                <i class="fas fa-check"></i>
+                            <li class="status dot">
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
-                                        Miracle]; Collection site is [AWKA-UNITY].</p>
-                                </div>
-                            </li>
-                            <li class="status">
-                                <i class="fas fa-truck"></i>
-                                <div class="status-info">
-                                    <p class="status-timestamp">2024-03-05 22:03:14</p>
-                                    {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -141,7 +131,7 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
@@ -149,13 +139,21 @@
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}
-                                    <p class="status-description">Parcel delivered [Collected] and Received by [Sixtus
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
+                                        Miracle]; Collection site is [AWKA-UNITY].</p>
+                                </div>
+                            </li>
+                            <li class="status dot">
+                                <div class="status-info">
+                                    <p class="status-timestamp">2024-03-05 22:03:14</p>
+                                    {{-- TODO: Do a replace on everything in square brackets --}}
+                                    <p class="status-description">Parcel delivered. Received by [Sixtus
                                         Miracle]; Collection site is [AWKA-UNITY].</p>
                                 </div>
                             </li>
                         </ul>
-                        <p class="toggle pkg-card-footer">
-                            Collapse
+                        <p class="pkg-card-footer">
+                            <span>Collapse</span>
                             <i class="fa-regular fa-chevron-down"></i>
                         </p>
                     </div>

@@ -13,6 +13,7 @@ import "@yaireo/tagify/dist/tagify.css";
         duplicates: false,
     });
 
+    // Last status height for tracking status line margin bottom
     function setLastStatusHeightCssVar() {
         const lastStatusHeight =
             $(".status-list .status:last").outerHeight() - 16;
@@ -22,5 +23,25 @@ import "@yaireo/tagify/dist/tagify.css";
 
     $(window).on("resize", function () {
         setLastStatusHeightCssVar();
+    });
+
+    // Toggle package card
+    $(".pkg-card .pkg-card-footer").on("click", function () {
+        // Change the text to the opposite
+        const isOpen = $(this).children("span").text() === "Collapse";
+
+        $(this)
+            .children("span")
+            .text(isOpen ? "More" : "Collapse");
+
+        // Replace the icon class with the opposite
+        $(this).children("i").toggleClass("fa-chevron-up fa-chevron-down");
+
+        // Toggle the status list statuses except the first one
+        $(this)
+            .siblings(".status-list")
+            .children(".status")
+            .not(":first-of-type")
+            .slideToggle(200);
     });
 })(jQuery);
