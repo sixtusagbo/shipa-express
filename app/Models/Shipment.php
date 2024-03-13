@@ -36,4 +36,12 @@ class Shipment extends Model
         // Return a regex pattern that matches the tracking number format
         return '/^' . $appInitials . '[A-Z0-9]{10}' . $lastLetter . '$/';
     }
+
+    /**
+     * Get the statuses of the shipment.
+     */
+    public function statuses()
+    {
+        return $this->hasMany(Status::class);
+    }
 }
