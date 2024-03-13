@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Shipment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class ShipmentController extends Controller
 {
@@ -61,5 +62,22 @@ class ShipmentController extends Controller
     public function destroy(Shipment $shipment)
     {
         //
+    }
+
+    /**
+     * Find a shipment by tracking number.
+     */
+    public function find(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'tracking_number' => 'required|regex:' . Shipment::trackingNumberValidationRegex(),
+        ]);
+
+        // Find the shipment
+        $shipment = Shipment::where('tracking_number', $request->tracking_number)->first();
+
+        // Return the shipment as JSON
+        return response()->json($shipment);
     }
 }

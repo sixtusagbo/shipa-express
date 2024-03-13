@@ -7,14 +7,33 @@
   transition: box-shadow 0.3s ease;
 
   &-header {
-    padding-left: 1.2rem;
-    padding-top: .8rem;
-    padding-bottom: .8rem;
+    padding: .8rem 1.2rem;
     margin-bottom: 0;
     border-bottom: 2px solid $slight-gray;
     background-color: $light-gray;
     border-top-left-radius: 0.65rem;
     border-top-right-radius: 0.65rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    button {
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.5s ease;
+      --bs-btn-padding-y: .25rem;
+      --bs-btn-padding-x: .5rem;
+      --bs-btn-font-size: .75rem;
+
+      &:hover {
+        background-color: darken($primary, 5%);
+      }
+    }
 
     span.track_number {
       color: #000;

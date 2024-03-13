@@ -24,7 +24,7 @@ class StatusFactory extends Factory
             'stage' => $this->faker->randomElement(['Processing', 'Arrived', 'Departed', 'In Transit']),
             'location' => $this->faker->city,
             'remarks' => $this->faker->sentence,
-            'icon_id' => Icon::inRandomOrder()->first()->id,
+            'icon_id' => $this->faker->boolean(50) ? Icon::inRandomOrder()->first()->id : null,
             'created_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
             'updated_at' => $this->faker->dateTimeBetween('-1 month', 'now'),
         ];

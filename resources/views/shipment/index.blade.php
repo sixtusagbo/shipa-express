@@ -25,9 +25,12 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-12 col-lg-6">
                     <div class="pkg-card">
-                        <p class="pkg-card-header">
-                            Waybill number: <span class="track_number">NG125125346R</span>
-                        </p>
+                        <div class="pkg-card-header">
+                            <p>Waybill number: <span class="track_number">NG125125346R</span></p>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                            </button>
+                        </div>
                         <ul class="status-list">
                             <li class="status delivered">
                                 <i class="fas fa-check"></i>
@@ -71,9 +74,12 @@
                         </p>
                     </div>
                     <div class="pkg-card">
-                        <p class="pkg-card-header">
-                            Waybill number: <span class="track_number">NG125125346R</span>
-                        </p>
+                        <div class="pkg-card-header">
+                            <p>Waybill number: <span class="track_number">NG125125346R</span></p>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                            </button>
+                        </div>
                         <ul class="status-list">
                             <li class="status">
                                 <i class="fa-solid fa-truck-fast"></i>
@@ -116,9 +122,12 @@
                         </p>
                     </div>
                     <div class="pkg-card">
-                        <p class="pkg-card-header">
-                            Waybill number: <span class="track_number">NG125125346R</span>
-                        </p>
+                        <div class="pkg-card-header">
+                            <p>Waybill number: <span class="track_number">NG125125346R</span></p>
+                            <button type="button" class="btn btn-primary">
+                                <i class="fa-sharp fa-solid fa-eye"></i> Info
+                            </button>
+                        </div>
                         <ul class="status-list">
                             <li class="status dot">
                                 <div class="status-info">
