@@ -71,13 +71,20 @@ class ShipmentController extends Controller
     {
         // Validate the request
         $request->validate([
-            'tracking_number' => 'required|regex:' . Shipment::trackingNumberValidationRegex(),
+            'tracking_numbers' => 'required|array',
+            'tracking_numbers.*' => 'required|regex:' . '/' . Shipment::trackingNumberValidationRegex() . '/',
         ]);
 
-        // Find the shipment
-        $shipment = Shipment::with('statuses')->where('tracking_number', $request->tracking_number)->first();
+        // Find the shipments
+        $shipments = Shipment::with('statuses')->whereIn('tracking_number', $request->tracking_numbers)->get();
+        $shipmentMap = [];
 
-        // Return the shipment as JSON
-        return response()->json($shipment);
+        foreach ($shipments as $shipment) {
+            $shipmentMap[$shipment->tracking_number] = $shipment;
+        }
+
+
+        // Return the shipments as JSON
+        return response()->json($shipmentMap);
     }
 }
