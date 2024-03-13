@@ -1,34 +1,7 @@
-/******* Customized Bootstrap ********/
-
-$primary: #FF3E41;
-$secondary: #51CFED;
-$light: #F8F2F0;
-$dark: #060315;
-
-$font-family-base: 'Inter', sans-serif;
-
-$headings-font-family: 'Roboto', sans-serif;
-
-$body-color: #555555;
-
-$headings-color: $dark;
-
-$headings-font-weight: 700;
-
-$display-font-weight: 700;
-
-$enable-responsive-font-sizes: true;
-
-$border-radius: 0px;
-
-$link-decoration: none;
-
-$enable-negative-margins: true;
-
-$light-gray: #f8f9fa;
-$slight-gray: #e9ecef;
-$primary-l20: lighten($primary, 20%);
+@import 'variables';
 
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+@import 'responsive';
 
 @import "tracking";

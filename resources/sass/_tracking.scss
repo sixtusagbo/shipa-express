@@ -61,21 +61,21 @@
     &:before {
       content: '';
       position: absolute;
-      border-radius: 100%;
       background-color: $light-gray;
-      border: 1px solid lighten($primary, 5%);
       height: 33px;
       width: 33px;
-      z-index: -1;
+      border: 1px solid lighten($primary, 5%);
+      border-radius: 100%;
+      z-index: 1;
       padding: .5rem;
     }
 
     i {
       font-size: .9rem;
-      z-index: 2;
+      z-index: 1;
       text-align: center;
-      margin-left: .61rem;
-      margin-top: .5rem;
+      margin-left: .58rem;
+      margin-top: .55rem;
     }
 
     &.dot:before {
