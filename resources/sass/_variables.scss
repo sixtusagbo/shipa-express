@@ -26,3 +26,5 @@ $enable-negative-margins: true;
 $light-gray: #f8f9fa;
 $slight-gray: #e9ecef;
 $primary-l20: lighten($primary, 20%);
+$body-color-l20: lighten($body-color, 20%);
+$body-color-d20: darken($body-color, 40%);

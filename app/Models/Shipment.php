@@ -34,7 +34,7 @@ class Shipment extends Model
         $lastLetter = Str::substr($appNameUpper, -1);
 
         // Return a regex pattern that matches the tracking number format
-        return '/^' . $appInitials . '[A-Z0-9]{10}' . $lastLetter . '$/';
+        return '^' . $appInitials . '[A-Z0-9]{10}' . $lastLetter . '$';
     }
 
     /**

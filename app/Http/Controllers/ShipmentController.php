@@ -76,7 +76,9 @@ class ShipmentController extends Controller
         ]);
 
         // Find the shipments
-        $shipments = Shipment::with('statuses')->whereIn('tracking_number', $request->tracking_numbers)->get();
+        $shipments = Shipment::with(['statuses', 'statuses.icon'])
+            ->whereIn('tracking_number', $request->tracking_numbers)
+            ->get();
         $shipmentMap = [];
 
         foreach ($shipments as $shipment) {

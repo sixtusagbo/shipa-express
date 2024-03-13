@@ -10,14 +10,18 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-6">
-                    <form action="">
+                    <form id="trackingForm" action="{{ route('shipments.find') }}">
                         <div class="form-group mb-3">
                             <textarea class="form-control" placeholder="{{ config('meta.tracking.placeholder') }}" name="tracking_numbers"
-                                data-tracking-pattern="{{ \App\Models\Shipment::trackingNumberValidationRegex() }}"
+                                data-tp="{{ \App\Models\Shipment::trackingNumberValidationRegex() }}"
                                 data-kit="{{ config('meta.tracking.keep_invalid_numbers') }}">
                             </textarea>
                         </div>
                         <div class="col-12">
+                            <div class="alert alert-danger fade show" id="trackingFormError">
+                                Enter a valid {{ config('app.name') }} tracking number to view shipping
+                                details.
+                            </div>
                             <button class="btn btn-primary w-100" type="submit">
                                 {{ config('meta.tracking.button') }}
                             </button>
@@ -27,7 +31,7 @@
             </div>
 
             <div class="row justify-content-center mt-5">
-                <div class="col-12 col-lg-6">
+                <div class="col-12 col-lg-6 shipments">
                     <div class="pkg-card">
                         <div class="pkg-card-header">
                             <p>Waybill number: <span class="track_number">NG125125346R</span></p>
@@ -170,6 +174,12 @@
                             <span>Collapse</span>
                             <i class="fa-regular fa-chevron-down"></i>
                         </p>
+                    </div>
+                    <div class="pkg-card">
+                        <div class="pkg-card-header">
+                            <p>Waybill number: <span class="track_number">NG125125346R</span></p>
+                        </div>
+                        <p class="ms-3 mt-3 text-primary">No logistics track information</p>
                     </div>
                 </div>
             </div>
