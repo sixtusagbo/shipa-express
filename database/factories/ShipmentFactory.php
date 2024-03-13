@@ -34,7 +34,6 @@ class ShipmentFactory extends Factory
             'carrier' => $this->faker->company,
             'pod' => $this->faker->imageUrl(),
             'invoice_number' => $this->faker->numerify('INV-########'),
-            'notes' => $this->faker->text,
             'eta' => $this->faker->dateTime,
             'booked_on' => $this->faker->date('Y-m-d'),
             'shipped_on' => $this->faker->optional()->date('Y-m-d'),

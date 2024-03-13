@@ -21,8 +21,9 @@ class Shipment extends Model
         $appNameUpper = Str::upper(config('app.name'));
         $appInitials = Str::limit($appNameUpper, 3, '');
         $lastLetter = Str::substr($appNameUpper, -1);
+        $randomNumber = Str::upper(Str::random(10));
 
-        return $appInitials . Str::random(10) . $lastLetter;
+        return $appInitials . $randomNumber . $lastLetter;
     }
 
     public static function trackingNumberValidationRegex(): string

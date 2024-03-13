@@ -39,7 +39,8 @@
                                 </div>
                             </li>
                             <li class="status">
-                                <i class="fas fa-truck"></i>
+                                {{-- <i class="fas fa-truck"></i> --}}
+                                <i class="fa-sharp fa-solid fa-truck-front"></i>
                                 <div class="status-info">
                                     <p class="status-timestamp">2024-03-05 22:03:14</p>
                                     {{-- TODO: Do a replace on everything in square brackets --}}

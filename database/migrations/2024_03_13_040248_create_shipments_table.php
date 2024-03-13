@@ -29,7 +29,6 @@ return new class extends Migration
             $table->string('carrier'); // Carrier Name
             $table->string('pod'); // Proof of Delivery (Image)
             $table->string('invoice_number', 20); // Invoice Number
-            $table->string('notes'); // Status Notes
             $table->timestamp('eta'); // Estimated Time of Arrival
             $table->date('booked_on')->default(date('Y-m-d')); // Date of booking process
             $table->date('shipped_on')->nullable(); // Date on which shipment leaves origin
