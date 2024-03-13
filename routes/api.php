@@ -22,5 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group([
     'middleware' => 'api',
 ], function () {
-    Route::post('/shipments/find', [ShipmentController::class, 'find']);
+    Route::post('/shipments/find', [ShipmentController::class, 'find'])->name('shipments.find');
 });

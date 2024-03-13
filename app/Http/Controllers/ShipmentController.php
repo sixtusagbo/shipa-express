@@ -75,7 +75,7 @@ class ShipmentController extends Controller
         ]);
 
         // Find the shipment
-        $shipment = Shipment::where('tracking_number', $request->tracking_number)->first();
+        $shipment = Shipment::with('statuses')->where('tracking_number', $request->tracking_number)->first();
 
         // Return the shipment as JSON
         return response()->json($shipment);
