@@ -22,6 +22,8 @@ Route::get('/contact', [GuestController::class, 'contact']);
 Route::post('/contact', [GuestController::class, 'send_contact_mail']);
 Route::get('/monitor-shipment', [ShipmentController::class, 'index']);
 
+Route::resource('shipments', ShipmentController::class)->except(['index', 'show']);
+
 // Mimi routes
 Route::get('mimi_clear_config', function () {
   Artisan::call('config:clear');

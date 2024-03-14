@@ -27,8 +27,8 @@ return new class extends Migration
             $table->enum('mode', ['Air', 'Road', 'Sea', 'Train']); // Mode of transportation
             $table->decimal('customs_cost'); // Customs Cost
             $table->string('carrier')->nullable(); // Carrier Name
-            $table->string('pod')->nullable(); // Proof of Delivery (Image)
             $table->string('invoice_number', 20); // Invoice Number
+            $table->string('pod')->nullable(); // Proof of Delivery (Image)
             $table->timestamp('eta')->nullable(); // Estimated Time of Arrival
             $table->date('booked_on')->default(date('Y-m-d')); // Date of booking process
             $table->date('shipped_on')->nullable(); // Date on which shipment leaves origin

@@ -50,7 +50,7 @@ import moment from "moment";
 
     function getStatusInfo(statuses) {
         if (statuses.length === 0) {
-            return "";
+            return '<p class="ms-3 mt-3 text-primary">No tracking information</p>';
         }
 
         let markup = '<ul class="status-list">';

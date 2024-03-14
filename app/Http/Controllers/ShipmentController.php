@@ -21,21 +21,13 @@ class ShipmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('shipment.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Shipment $shipment)
     {
         //
     }
