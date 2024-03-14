@@ -37,4 +37,7 @@ return [
   'status' => [
     'stages' => ['Processing', 'Arrived', 'Departed', 'In Transit', 'On Hold', 'Customs Check', 'Delivered', 'Returned', 'Cancelled'],
   ],
+  'colors' => [
+    'primary' => '#FF3E41',
+  ],
 ];

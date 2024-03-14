@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\CollectionNoticeMail;
+use App\Mail\ParcelStatusMail;
 use App\Models\Icon;
 use App\Models\Shipment;
 use App\Models\Status;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
 class StatusController extends Controller
@@ -36,9 +40,26 @@ class StatusController extends Controller
             'icon_id' => 'nullable',
         ]);
 
-        Status::create($fields);
+        $status = Status::create($fields);
         $id = $fields['shipment_id'];
         $route = "/shipments/$id/statuses";
+
+        $config = [
+            'name' => $status->shipment->recipient_name,
+            'tracking_number' => $status->shipment->tracking_number,
+            'from' => $status->shipment->origin,
+            'stage' => $status->stage,
+        ];
+        if ($status->stage == 'Delivered') {
+            $delivered_on = $status->shipment->delivered_on;
+            $delivered_at = $status->shipment->delivered_at;
+            $config['collected_on'] = Carbon::createFromTimestamp($delivered_on . $delivered_at);
+        }
+        $mailable = $status->stage == 'Delivered' ? new CollectionNoticeMail($config) : new ParcelStatusMail($config);
+        $email = $status->shipment->recipient_email;
+        // Mail::to($email)->send($mailable);
+
+        return $mailable;
 
         return redirect($route)->with('message', 'Status created successfully!');
     }

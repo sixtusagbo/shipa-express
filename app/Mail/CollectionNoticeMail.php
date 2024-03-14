@@ -42,7 +42,6 @@ class CollectionNoticeMail extends Mailable
             view: 'email.collection-notice',
             with: [
                 'name' => $this->config['name'],
-                'content' => $this->config['content'],
                 'origin' => $this->config['from'],
                 'collected_on' => $this->config['collected_on'],
             ]

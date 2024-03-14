@@ -29,7 +29,7 @@ class ParcelStatusMail extends Mailable
      */
     public function envelope(): Envelope
     {
-        $date = Carbon::now()->date('Y-m-d');
+        $date = Carbon::now()->format('Y-m-d');
         return new Envelope(
             subject: 'Parcel Status Notification [' . $date . ']',
         );
@@ -44,7 +44,6 @@ class ParcelStatusMail extends Mailable
             view: 'email.parcel-status',
             with: [
                 'name' => $this->config['name'],
-                'content' => $this->config['content'],
                 'waybill_number' => $this->config['tracking_number'],
                 'origin' => $this->config['from'],
                 'status' => $this->config['stage'],
