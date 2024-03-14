@@ -11,7 +11,8 @@
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
                     <div class="d-flex justify-content-center">
-                        <a href="/statuses/create" class="btn btn-dark mb-2 p-2 d-flex align-items-center">
+                        <a href="/shipments/{{ $shipment->id }}/statuses/create"
+                            class="btn btn-dark mb-2 p-2 d-flex align-items-center">
                             <i class="fa-sharp fa-solid fa-plus me-1"></i> Add Status
                         </a>
                     </div>

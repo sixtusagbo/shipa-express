@@ -1,0 +1,17 @@
+.icon-input {
+  padding: .7rem;
+
+  i {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin: .3rem;
+
+    &.selected {
+      color: $primary;
+      border: 2px double $primary;
+      padding: .4rem;
+      border-radius: 100%;
+      font-size: 1.2rem;
+    }
+  }
+}

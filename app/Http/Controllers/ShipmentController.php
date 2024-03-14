@@ -30,7 +30,7 @@ class ShipmentController extends Controller
     public function store()
     {
         $fields = request()->validate([
-            'tracking_number' => 'required|regex:' . '/' . Shipment::trackingNumberValidationRegex() . '/',
+            'tracking_number' => 'required|regex:' . '/' . Shipment::trackingNumberValidationRegex() . '/' . '|unique:shipments,tracking_number',
             'shipper_name' => 'required|different:recipient_name',
             'shipper_address' => 'required|string|min:2|max:255|different:recipient_address',
             'shipper_phone' => 'nullable|different:recipient_phone',

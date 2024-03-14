@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->enum('stage', ['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled']);
             $table->string('remarks')->nullable();
-            $table->foreignId('icon_id')->nullable()->constrained()->onDelete('set null');
+            $table->foreignId('icon_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('set null');
             $table->timestamps();
         });
     }
