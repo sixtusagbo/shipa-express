@@ -59,9 +59,21 @@ class StatusController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Status $status)
+    public function update(Status $status)
     {
-        //
+        $fields = request()->validate([
+            'shipment_id' => 'required',
+            'stage' => ['required', Rule::in(['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled'])],
+            'location' => 'nullable',
+            'remarks' => 'required|string|max:255',
+            'icon_id' => 'nullable',
+        ]);
+
+        $status->update($fields);
+        $id = $fields['shipment_id'];
+        $route = "/shipments/$id/statuses";
+
+        return redirect($route)->with('message', 'Status updated successfully!');
     }
 
     /**

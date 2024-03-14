@@ -10,12 +10,15 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-6">
-                    <form action="/statuses" method="POST">
+                    <form action="/statuses/{{ $status->id }}" method="POST">
                         @csrf
+                        @method('PUT')
 
                         <p class="lead fst-italic fs-6 text-primary">Required fields are marked with asterisk</p>
 
                         <div class="row g-3">
+                            <input type="hidden" name="shipment_id" value="{{ $status->shipment->id }}">
+
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <select class="form-control" id="stage" name="stage">
@@ -55,7 +58,7 @@
 
                             <div class="col-12">
                                 <p>Icon</p>
-                                <input type="hidden" id="icon_id" name="icon_id" value="">
+                                <input type="hidden" id="icon_id" name="icon_id" value="{{ __($status->icon_id) }}">
 
                                 <div class="border icon-input">
                                     <i class="fas fa-circle iconInputIcon @if ($status->icon_id == null) selected @endif"
