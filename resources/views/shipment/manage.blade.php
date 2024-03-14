@@ -39,8 +39,8 @@
                                         <td>{{ $shipment->mode }}</td>
                                         <td>{{ $shipment->customs_cost }}</td>
                                         <td>
-                                            <a href="" class="btn btn-warning mb-2 p-2" data-bs-toggle="modal"
-                                                data-bs-target="#edit{{ $shipment->id }}" title="Edit Shipment">
+                                            <a href="/shipments/{{ $shipment->id }}/edit"
+                                                class="btn btn-warning mb-2 p-2" title="Edit Shipment">
                                                 <i class="fa-sharp fa-solid fa-pen-to-square"></i> Edit
                                             </a>
                                             <a href="" data-bs-toggle="modal" class="btn btn-danger mb-2 p-2"

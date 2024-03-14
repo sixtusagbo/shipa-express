@@ -70,7 +70,7 @@ class ShipmentController extends Controller
      */
     public function edit(Shipment $shipment)
     {
-        //
+        return view('shipment.edit')->with('shipment', $shipment);
     }
 
     /**
