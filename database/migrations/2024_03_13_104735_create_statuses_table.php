@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
             $table->foreignId('shipment_id')->constrained()->onDelete('cascade');
-            $table->string('location');
+            $table->string('location')->nullable();
             $table->enum('stage', ['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled']);
             $table->string('remarks')->nullable();
             $table->foreignId('icon_id')->nullable()->constrained()->onDelete('set null');

@@ -66,9 +66,10 @@ import moment from "moment";
             statusMarkup += moment(status.created_at).format("llll");
             statusMarkup += "</p>";
             statusMarkup += '<p class="status-description">';
+            if (status.location !== null) {
+                statusMarkup += `<span class="text-primary">[${status.location}]</span> `;
+            }
             statusMarkup += status.remarks;
-            statusMarkup += " ";
-            statusMarkup += `Last site is <span class="text-primary">${status.location}</span>.`;
             statusMarkup += "</p>";
             statusMarkup += "</div>";
             statusMarkup += "</li>";
