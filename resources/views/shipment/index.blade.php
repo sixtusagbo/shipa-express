@@ -35,6 +35,10 @@
                     <div class="pkg-card">
                         <div class="pkg-card-header">
                             <p>Waybill number: <span class="track_number">NG125125346R</span></p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#waybillInfo">
+                                <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
+                            </button>
                             <div class="modal fade" id="waybillInfo" data-bs-keyboard="false" tabindex="-1"
                                 aria-labelledby="waybillInfoLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -54,14 +58,6 @@
                                                             <th scope="row">Name:</th>
                                                             <td>Someone</td>
                                                         </tr>
-                                                        <tr>
-                                                            <th scope="row">Name:</th>
-                                                            <td>Someone</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <th scope="row">Name:</th>
-                                                            <td>Someone</td>
-                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -73,10 +69,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#waybillInfo">
-                                <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
-                            </button>
                         </div>
                         <ul class="status-list">
                             <li class="status delivered">

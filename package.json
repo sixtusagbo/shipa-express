@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@yaireo/tagify": "^4.21.1",
-        "bootstrap": "^5.3.3"
+        "bootstrap": "^5.3.3",
+        "moment": "^2.30.1"
     }
 }

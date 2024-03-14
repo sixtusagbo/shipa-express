@@ -1,11 +1,12 @@
 import Tagify from "@yaireo/tagify";
 import "@yaireo/tagify/dist/tagify.css";
+import moment from "moment";
 
 (function ($) {
     $("#trackingFormError").hide();
     // Hide all statuses except the first one
     $(".pkg-card .status-list .status").not(":first-of-type").hide();
-    // $(".shipments").empty();
+    $(".shipments").empty();
 
     // Tracking code textarea input
     const trackingCodeInput = document.querySelector(
@@ -52,14 +53,6 @@ import "@yaireo/tagify/dist/tagify.css";
             return "";
         }
 
-        const datetimeFormatOptions = {
-            year: "numeric",
-            month: "2-digit",
-            day: "2-digit",
-            hour: "2-digit",
-            minute: "2-digit",
-            second: "2-digit",
-        };
         let markup = '<ul class="status-list">';
         for (const status of statuses) {
             let statusMarkup = '<li class="status';
@@ -70,10 +63,7 @@ import "@yaireo/tagify/dist/tagify.css";
                 statusMarkup += ` <i class="${status.icon.name}"></i>`;
             statusMarkup += '<div class="status-info">';
             statusMarkup += '<p class="status-timestamp">';
-            statusMarkup += new Date(status.created_at).toLocaleString(
-                "en-US",
-                datetimeFormatOptions
-            );
+            statusMarkup += moment(status.created_at).format("llll");
             statusMarkup += "</p>";
             statusMarkup += '<p class="status-description">';
             statusMarkup += status.remarks;
@@ -90,6 +80,94 @@ import "@yaireo/tagify/dist/tagify.css";
         return markup;
     }
 
+    const omit = (obj, arr) =>
+        Object.fromEntries(
+            Object.entries(obj).filter(([k]) => !arr.includes(k))
+        );
+
+    const currencyFormatter = new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+    });
+
+    function getShipmentInfoModal(shipment) {
+        const id = `waybillInfo${shipment.id}`;
+        let markup =
+            '<button type="button" class="btn btn-primary" data-bs-toggle="modal"';
+        markup += `data-bs-target="#${id}">`;
+        markup +=
+            '<i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span></button>';
+        markup += `<div class="modal fade" id="${id}" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="${id}Label" aria-hidden="true">`;
+        markup += '<div class="modal-dialog"><div class="modal-content">';
+        markup += '<div class="modal-header">';
+        markup += `<h1 class="modal-title fs-5 waybill-title" id="${id}Label">`;
+        markup += `<span>Waybill:</span> ${shipment.tracking_number}`;
+        markup += "</h1>"; // Close h1
+        markup +=
+            '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>';
+        markup += "</div>"; // Close modal-header
+        markup += '<div class="modal-body p-0">';
+        markup += `
+            <table class="table table-striped">
+                <tbody>
+                `;
+        const filtered = omit(shipment, [
+            "id",
+            "statuses",
+            "created_at",
+            "updated_at",
+        ]);
+        const timeFormat = [moment.ISO_8601, "HH:mm:ss"];
+        for (const key in filtered) {
+            let value = filtered[key];
+            if (value !== null) {
+                let neatKey = key.replace(/_/g, " ");
+                // Capitalize first letter of each word in neatKey
+                neatKey = neatKey.replace(/\b\w/g, (char) =>
+                    char.toUpperCase()
+                );
+                if (neatKey.length === 3) neatKey = neatKey.toUpperCase();
+                if (key === "customs_cost") {
+                    value = currencyFormatter.format(value);
+                }
+                if (key === "pod") {
+                    value = `<image src="${value}" alt="pod" />`;
+                }
+                if (key === "eta") value = moment(value).fromNow();
+                if (key === "booked_on") value = moment(value).format("LL");
+                if (key === "shipped_on") value = moment(value).format("LL");
+                if (key === "delivered_on") value = moment(value).format("LL");
+                if (key === "booked_at") {
+                    value = moment(value, timeFormat).format("LT");
+                }
+                if (key === "shipped_at") {
+                    value = moment(value, timeFormat).format("LT");
+                }
+                if (key === "delivered_at") {
+                    value = moment(value, timeFormat).format("LT");
+                }
+                let row = "<tr>";
+                row += `<th scope="row">${neatKey}:</th>`;
+                row += `<td>${value}</td>`;
+                row += "</tr>";
+                markup += row;
+            }
+        }
+        markup += `
+                </tbody>
+            </table>`;
+        markup += "</div>"; // Close modal-body
+        markup += '<div class="modal-footer border-top-0 pt-0">';
+        markup += `<button type="button" class="btn btn-primary" 
+                data-bs-dismiss="modal">Close</button>`;
+        markup += "</div>"; // Close modal-footer
+        markup += "</div></div>"; // Close modal-content, modal-dialog
+        markup += "</div>"; // Close modal
+
+        return markup;
+    }
+
     function renderShipment(shipment) {
         const markup = `
         <div class="pkg-card">
@@ -97,9 +175,7 @@ import "@yaireo/tagify/dist/tagify.css";
                 <p>Waybill number: <span class="track_number">${
                     shipment.tracking_number
                 }</span></p>
-                <button type="button" class="btn btn-primary">
-                    <i class="fa-sharp fa-solid fa-eye"></i> <span>Info</span>
-                </button>
+                ${getShipmentInfoModal(shipment)}
             </div>
             ${getStatusInfo(shipment.statuses)}
             <p class="pkg-card-footer">
