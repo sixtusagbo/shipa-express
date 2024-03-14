@@ -40,10 +40,6 @@
                                 @enderror
                             </div>
 
-
-
-
-
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="shipper_name"
