@@ -19,7 +19,8 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="tracking_number"
                                         placeholder="Tracking Number" name="tracking_number"
-                                        value="{{ \App\Models\Shipment::generateTrackingNumber() }}" readonly>
+                                        value="{{ old('tracking_number', \App\Models\Shipment::generateTrackingNumber()) }}"
+                                        readonly>
                                     <label for="tracking_number">Tracking Number<span
                                             class="text-primary">*</span></label>
                                 </div>
@@ -210,7 +211,7 @@
                                     <input type="datetime-local" class="form-control" id="eta"
                                         placeholder="Estimated Time of Arrival" name="eta"
                                         value="{{ old('eta') }}">
-                                    <label for="eta">Estimated Time of Arrival</label>
+                                    <label for="eta">Estimated Time of Arrival (ETA)</label>
                                 </div>
                                 @error('eta')
                                     <x-error>Please enter the estimated time of arrival</x-error>
@@ -286,6 +287,23 @@
                                 </div>
                                 @error('delivered_at')
                                     <x-error>Please enter the time delivered</x-error>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="pod"
+                                        placeholder="Proof of Delivery" name="pod" value="{{ old('pod') }}"
+                                        aria-describedby="podHelpBlock">
+                                    <label for="pod">Proof of Delivery (POD)</label>
+                                    <div id="podHelpBlock" class="form-text">
+                                        Please upload the proof of delivery to any cloud storage of your choice (Google
+                                        Drive, Mega, OneDrive) and paste link to the
+                                        image here.
+                                    </div>
+                                </div>
+                                @error('pod')
+                                    <x-error>{{ $message }}</x-error>
                                 @enderror
                             </div>
 

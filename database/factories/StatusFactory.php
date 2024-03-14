@@ -22,7 +22,7 @@ class StatusFactory extends Factory
         return [
             'shipment_id' => 1,
             'stage' => $this->faker->randomElement(['Processing', 'Arrived', 'Departed', 'In Transit']),
-            'location' => $this->faker->city,
+            'location' => $this->faker->optional()->city,
             'remarks' => $this->faker->sentence,
             'icon_id' => $this->faker->boolean(50) ? Icon::inRandomOrder()->first()->id : null,
             'created_at' => $this->faker->dateTimeBetween('-1 month', 'now'),

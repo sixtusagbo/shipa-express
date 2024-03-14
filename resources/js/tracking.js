@@ -66,6 +66,7 @@ import moment from "moment";
             statusMarkup += moment(status.created_at).format("llll");
             statusMarkup += "</p>";
             statusMarkup += '<p class="status-description">';
+            statusMarkup += `<span class="text-primary">[${status.stage}]</span> `;
             if (status.location !== null) {
                 statusMarkup += `<span class="text-primary">[${status.location}]</span> `;
             }
