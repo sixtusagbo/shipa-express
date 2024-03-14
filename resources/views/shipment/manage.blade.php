@@ -54,6 +54,30 @@
                                             </a>
                                         </td>
                                     </tr>
+
+                                    {{-- Remove shipment modal --}}
+                                    <div class="modal fade" id="delete{{ $shipment->id }}" tabindex="-1"
+                                        role="dialog" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body" id="delete{{ $shipment->id }}-modal-body">
+                                                    <p>
+                                                        Confirm deletion of shipment:
+                                                        <strong>{{ $shipment->tracking_number }}</strong>
+                                                    </p>
+                                                    <form method="POST"
+                                                        action="{{ route('shipments.destroy', $shipment->id) }}">
+                                                        @csrf
+                                                        @method('DELETE')
+
+                                                        <div class="d-flex justify-content-center align-items-center">
+                                                            <button type="submit" class="btn btn-danger">Yes</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 @endforeach
                             </tbody>
                         </table>

@@ -114,7 +114,9 @@ class ShipmentController extends Controller
      */
     public function destroy(Shipment $shipment)
     {
-        //
+        $shipment->delete();
+
+        return redirect('/manage-shipments')->with('message', 'Shipment deleted successfully!');
     }
 
     /**
