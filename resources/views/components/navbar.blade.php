@@ -13,7 +13,7 @@
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shipping</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="/shipping/new" class="dropdown-item">Ship Now</a>
+                    <a href="/shipments/create" class="dropdown-item">Ship Now</a>
                     <a href="/manage" class="dropdown-item">Manage</a>
                 </div>
             </div>
