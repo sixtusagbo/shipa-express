@@ -81,6 +81,11 @@ class StatusController extends Controller
      */
     public function destroy(Status $status)
     {
-        //
+        $id = $status->shipment->id;
+        $route = "/shipments/$id/statuses";
+
+        $status->delete();
+
+        return redirect($route)->with('message', 'Status removed successfully!');
     }
 }
