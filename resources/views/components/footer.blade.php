@@ -23,13 +23,13 @@
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Explore</h4>
-                <a class="btn btn-link" href="">Ship</a>
-                <a class="btn btn-link" href="">Track</a>
+                <a class="btn btn-link" href="#">Ship</a>
+                <a class="btn btn-link" href="/monitor-shipment">Track</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Legal</h4>
-                <a class="btn btn-link" href="">Terms & Conditions</a>
-                <a class="btn btn-link" href="">Privacy Policy</a>
+                <a class="btn btn-link" href="#">Terms & Conditions</a>
+                <a class="btn btn-link" href="#">Privacy Policy</a>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h4 class="text-light mb-4">Language</h4>
