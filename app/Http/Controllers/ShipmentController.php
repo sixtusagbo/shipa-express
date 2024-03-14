@@ -152,4 +152,12 @@ class ShipmentController extends Controller
     {
         return view('shipment.manage')->with('shipments', Shipment::latest()->get());
     }
+
+    /**
+     * Show the statuses of a shipment.
+     */
+    public function statuses(Shipment $shipment)
+    {
+        return view('shipment.statuses')->with('shipment', $shipment);
+    }
 }

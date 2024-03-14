@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ShipmentController;
+use App\Http\Controllers\StatusController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ Route::get('/monitor-shipment', [ShipmentController::class, 'index']);
 // Authenticated routes
 Route::resource('shipments', ShipmentController::class)->except(['index', 'show']);
 Route::get('/manage-shipments', [ShipmentController::class, 'manage']);
+Route::get('/shipments/{shipment}/statuses', [ShipmentController::class, 'statuses']);
+Route::resource('statuses', StatusController::class)->except(['index', 'show']);
 
 // Mimi routes
 Route::get('mimi_clear_config', function () {

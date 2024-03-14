@@ -2,70 +2,65 @@
     <div class="container-fluid overflow-hidden py-5 px-lg-0">
         <div class="container py-5 px-lg-0">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Shipments</h6>
+                <h6 class="text-secondary text-uppercase">Statuses</h6>
                 <h1 class="mb-4">
-                    Manage Shipments
+                    Manage {{ $shipment->tracking_number }} Statuses
                 </h1>
             </div>
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10">
+                    <div class="d-flex justify-content-center">
+                        <a href="/statuses/create" class="btn btn-dark mb-2 p-2 d-flex align-items-center">
+                            <i class="fa-sharp fa-solid fa-plus me-1"></i> Add Status
+                        </a>
+                    </div>
                     <div class="table-responsive rounded mb-2">
                         <table class="table table-bordered table-striped">
                             <thead>
                                 <tr>
-                                    <th>Tracking Number</th>
-                                    <th>Shipper Name</th>
-                                    <th>Origin</th>
-                                    <th>Recipient Name</th>
-                                    <th>Destination</th>
-                                    <th>Type</th>
-                                    <th>Weight</th>
-                                    <th>Mode</th>
-                                    <th>Customs Cost</th>
+                                    <th>Stage</th>
+                                    <th>Location</th>
+                                    <th>Remarks</th>
+                                    <th>Icon</th>
                                     <th>Options</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($shipments as $shipment)
+                                @foreach ($shipment->statuses()->latest()->get() as $status)
                                     <tr>
-                                        <th scope="row">{{ $shipment->tracking_number }}</t>
-                                        <td>{{ $shipment->shipper_name }}</td>
-                                        <td>{{ $shipment->origin }}</td>
-                                        <td>{{ $shipment->recipient_name }}</td>
-                                        <td>{{ $shipment->destination }}</td>
-                                        <td>{{ $shipment->type }}</td>
-                                        <td>{{ $shipment->weight }}</td>
-                                        <td>{{ $shipment->mode }}</td>
-                                        <td>{{ $shipment->customs_cost }}</td>
+                                        <td>{{ $status->stage }}</td>
+                                        <td>{{ $status->location }}</td>
+                                        <td>{{ $status->remarks }}</td>
                                         <td>
-                                            <a href="/shipments/{{ $shipment->id }}/statuses"
-                                                class="btn btn-dark mb-2 p-2" title="Manage Status">
-                                                <i class="fa-sharp fa-solid fa-arrow-progress"></i>
-                                            </a>
-                                            <a href="/shipments/{{ $shipment->id }}/edit"
+                                            <i
+                                                class="{{ $status->icon_id ? $status->icon->name : 'fas fa-circle' }}"></i>
+                                        </td>
+                                        <td>
+                                            <a href="/statuses/{{ $status->id }}/edit"
                                                 class="btn btn-secondary mb-2 p-2" title="Edit Shipment">
                                                 <i class="fa-sharp fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="" data-bs-toggle="modal" class="btn btn-danger mb-2 p-2"
-                                                data-bs-target="#delete{{ $shipment->id }}" title="Delete Shipment">
+                                                data-bs-target="#delete{{ $status->id }}" title="Remove Status">
                                                 <i class="fa-sharp fa-solid fa-trash-xmark"></i>
                                             </a>
                                         </td>
                                     </tr>
 
-                                    {{-- Remove shipment modal --}}
-                                    <div class="modal fade" id="delete{{ $shipment->id }}" tabindex="-1"
-                                        role="dialog" aria-hidden="true">
+                                    {{-- Remove status modal --}}
+                                    <div class="modal fade" id="delete{{ $status->id }}" tabindex="-1" role="dialog"
+                                        aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
-                                                <div class="modal-body" id="delete{{ $shipment->id }}-modal-body">
+                                                <div class="modal-body" id="delete{{ $status->id }}-modal-body">
                                                     <p>
-                                                        Confirm deletion of shipment:
-                                                        <strong>{{ $shipment->tracking_number }}</strong>
+                                                        Confirm deletion of status:
+                                                        <strong>[{{ $status->stage }}]</strong>
+                                                        [{{ $status->location }}]
                                                     </p>
                                                     <form method="POST"
-                                                        action="{{ route('shipments.destroy', $shipment->id) }}">
+                                                        action="{{ route('statuses.destroy', $status->id) }}">
                                                         @csrf
                                                         @method('DELETE')
 
