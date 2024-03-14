@@ -14,7 +14,7 @@
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shipping</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="/shipments/create" class="dropdown-item">Ship Now</a>
-                    <a href="/manage" class="dropdown-item">Manage</a>
+                    <a href="/manage-shipments" class="dropdown-item">Manage</a>
                 </div>
             </div>
             <a href="/#about" class="nav-item nav-link" id="about-link">About</a>

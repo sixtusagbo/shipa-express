@@ -114,4 +114,12 @@ class ShipmentController extends Controller
         // Return the shipments as JSON
         return response()->json($shipmentMap);
     }
+
+    /**
+     * Manage shipments.
+     */
+    public function manage()
+    {
+        return view('shipment.manage')->with('shipments', Shipment::latest()->get());
+    }
 }

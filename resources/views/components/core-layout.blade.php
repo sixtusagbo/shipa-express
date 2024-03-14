@@ -39,6 +39,7 @@
     <link href="{{ asset('third-party/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('css/bootstrap.min.css') }}?v={{ time() }}" rel="stylesheet"> --}}
     {{-- <link href="{{ asset('css/style.css') }}?v={{ time() }}" rel="stylesheet"> --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
     @vite('resources/sass/bootstrap.scss')
     @vite('resources/css/design.css')
 
@@ -91,6 +92,27 @@
     <script
         src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=false"
         type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.fn.dataTable.ext.errMode = 'none';
+            if ($('.table').length) {
+                $('.table').on('error.dt', function(e, settings, techNote, message) {
+                    console.log('[Error] DataTables: ', message);
+                }).DataTable({
+                    'language': {
+                        'emptyTable': 'No shipments available',
+                        'infoEmpty': 'No entry to show',
+                    },
+                    'columnDefs': [{
+                        'orderable': false,
+                        'targets': [-1]
+                    }]
+                });
+            }
+        });
+    </script>
 
     <x-flash-message />
 </body>
