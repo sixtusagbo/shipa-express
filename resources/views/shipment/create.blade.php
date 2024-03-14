@@ -100,6 +100,19 @@
 
                             <div class="col-12">
                                 <div class="form-floating">
+                                    <input type="text" class="form-control" id="recipient_email"
+                                        placeholder="Recipient Email" name="recipient_email"
+                                        value="{{ old('recipient_email') }}">
+                                    <label for="recipient_email">Recipient Email<span
+                                            class="text-primary">*</span></label>
+                                </div>
+                                @error('recipient_email')
+                                    <x-error>Please enter the recipient's email</x-error>
+                                @enderror
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" id="recipient_address"
                                         placeholder="Recipient Address" name="recipient_address"
                                         value="{{ old('recipient_address') }}">
@@ -114,7 +127,8 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="destination"
-                                        placeholder="Destination" name="destination" value="{{ old('destination') }}">
+                                        placeholder="Destination" name="destination"
+                                        value="{{ old('destination') }}">
                                     <label for="destination">Destination<span class="text-primary">*</span></label>
                                 </div>
                                 @error('destination')

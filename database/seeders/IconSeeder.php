@@ -43,6 +43,7 @@ class IconSeeder extends Seeder
             'fa-solid fa-hand-holding-box',
             'fa-solid fa-gas-pump',
             'fa-solid fa-ferry',
+            'fa-solid fa-user',
         ];
 
         foreach ($iconNames as $name) {

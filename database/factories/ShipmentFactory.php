@@ -24,6 +24,7 @@ class ShipmentFactory extends Factory
             'shipper_phone' => $this->faker->optional()->phoneNumber,
             'origin' => $this->faker->city,
             'recipient_name' => $this->faker->name,
+            'recipient_email' => $this->faker->email,
             'recipient_address' => $this->faker->address,
             'recipient_phone' => $this->faker->optional()->phoneNumber,
             'destination' => $this->faker->city,

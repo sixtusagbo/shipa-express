@@ -18,6 +18,7 @@
                                     <th>Shipper Name</th>
                                     <th>Origin</th>
                                     <th>Recipient Name</th>
+                                    <th>Recipient Email</th>
                                     <th>Destination</th>
                                     <th>Type</th>
                                     <th>Weight</th>
@@ -33,6 +34,7 @@
                                         <td>{{ $shipment->shipper_name }}</td>
                                         <td>{{ $shipment->origin }}</td>
                                         <td>{{ $shipment->recipient_name }}</td>
+                                        <td>{{ $shipment->recipient_email }}</td>
                                         <td>{{ $shipment->destination }}</td>
                                         <td>{{ $shipment->type }}</td>
                                         <td>{{ $shipment->weight }}</td>

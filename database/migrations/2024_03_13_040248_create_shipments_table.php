@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('shipper_phone')->nullable();
             $table->string('origin');
             $table->string('recipient_name');
+            $table->string('recipient_email');
             $table->string('recipient_address');
             $table->string('recipient_phone')->nullable();
             $table->string('destination');
