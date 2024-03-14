@@ -30,7 +30,7 @@ class StatusController extends Controller
     {
         $fields = request()->validate([
             'shipment_id' => 'required|exists:shipments,id',
-            'stage' => ['required', Rule::in(['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled'])],
+            'stage' => ['required', Rule::in(config('meta.status.stages'))],
             'location' => 'nullable',
             'remarks' => 'required|string|max:255',
             'icon_id' => 'nullable',
@@ -63,7 +63,7 @@ class StatusController extends Controller
     {
         $fields = request()->validate([
             'shipment_id' => 'required',
-            'stage' => ['required', Rule::in(['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled'])],
+            'stage' => ['required', Rule::in(config('meta.status.stages'))],
             'location' => 'nullable',
             'remarks' => 'required|string|max:255',
             'icon_id' => 'nullable',

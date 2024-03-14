@@ -22,7 +22,7 @@
                                 <div class="form-floating">
                                     <select class="form-control" id="stage" name="stage">
                                         <option value="">Select Stage</option>
-                                        @foreach (['Processing', 'Arrived', 'Departed', 'In Transit', 'Delivered', 'Returned', 'Cancelled'] as $stage)
+                                        @foreach (config('meta.status.stages') as $stage)
                                             <option @if (old('stage') === $stage) selected @endif
                                                 value="{{ $stage }}">
                                                 {{ $stage }}

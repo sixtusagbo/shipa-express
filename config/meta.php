@@ -34,4 +34,7 @@ return [
     'button' => 'Track',
     'keep_invalid_numbers' => false,
   ],
+  'status' => [
+    'stages' => ['Processing', 'Arrived', 'Departed', 'In Transit', 'On Hold', 'Customs Check', 'Delivered', 'Returned', 'Cancelled'],
+  ],
 ];

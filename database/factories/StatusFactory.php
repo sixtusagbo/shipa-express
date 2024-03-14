@@ -21,7 +21,7 @@ class StatusFactory extends Factory
     {
         return [
             'shipment_id' => 1,
-            'stage' => $this->faker->randomElement(['Processing', 'Arrived', 'Departed', 'In Transit']),
+            'stage' => $this->faker->randomElement(config('meta.status.stages')),
             'location' => $this->faker->optional()->city,
             'remarks' => $this->faker->sentence,
             'icon_id' => $this->faker->boolean(50) ? Icon::inRandomOrder()->first()->id : null,
