@@ -305,11 +305,6 @@
                             </div>
 
                             <div class="col-12">
-                                @if (session()->has('message'))
-                                    <div class="alert alert-success" role="alert">
-                                        {{ session('message') }}
-                                    </div>
-                                @endif
                                 <button class="btn btn-primary w-100 py-3" type="submit">Continue</button>
                             </div>
                         </div>
