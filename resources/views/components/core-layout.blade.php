@@ -42,6 +42,7 @@
     @vite('resources/sass/bootstrap.scss')
     @vite('resources/css/design.css')
 
+    <script src="//unpkg.com/alpinejs" defer></script>
     @vite('resources/js/app.js')
 </head>
 
@@ -90,6 +91,8 @@
     <script
         src="https://translate.yandex.net/website-widget/v1/widget.js?widgetId=ytWidget&pageLang=en&widgetTheme=light&autoMode=false"
         type="text/javascript"></script>
+
+    <x-flash-message />
 </body>
 
 </html>
