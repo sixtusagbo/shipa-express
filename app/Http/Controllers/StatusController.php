@@ -8,7 +8,6 @@ use App\Models\Icon;
 use App\Models\Shipment;
 use App\Models\Status;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rule;
 
@@ -57,9 +56,8 @@ class StatusController extends Controller
         }
         $mailable = $status->stage == 'Delivered' ? new CollectionNoticeMail($config) : new ParcelStatusMail($config);
         $email = $status->shipment->recipient_email;
-        // Mail::to($email)->send($mailable);
-
-        return $mailable;
+        Mail::to($email)->send($mailable);
+        // return $mailable; //? Testing purposes
 
         return redirect($route)->with('message', 'Status created successfully!');
     }

@@ -25,29 +25,29 @@
 
     <div class="wrapper">
         <div style="color: #000;text-align: left;">
-            @isset($name)
-                <p>Dear {{ $name }}:</p>
-            @endisset
-
-            <p>Good day!</p>
+            <p>Dear {{ $name }}:</p>
 
             <p>
                 @php
                     $url = preg_replace('(^https?://)', '', config('app.url'));
+                    $companyEmail = config('meta.company.email');
                 @endphp
 
-                We trust this mail meets you well. This is to bring to your notice that your shipment with waybill
-                number <b>[{{ $waybill_number }}]</b> from <b>[{{ $origin }}]</b>, current status is
-                <b>[{{ $status }}]</b>,
-                please
-                visit <a href="{{ config('app.url') }}" style="text-decoration: none;">{{ $url }}</a> for more
-                details. Thank you for choosing us.
+                We trust this mail finds you well. This is to bring to your notice that your shipment from
+                <b>[{{ $origin }}]</b>, has been collected on <b>[{{ $collected_on }}]</b>.
+            </p>
+
+            <p>
+                Any questions? Please feel free to contact us via our active email address: <br>
+                Email: <a href="mailto:{{ $companyEmail }}">{{ $companyEmail }}</a> <br>
+                Thanks for choosing us. <br>
+                Tracking shipment's status, please visit: <a href="{{ config('app.url') }}">{{ $url }}</a>
             </p>
         </div>
 
         <div style="margin-top: 1rem;text-align: left;">
             <p
-                style="text-transform: uppercase;color: {{ config('meta.colors.primary', '#000') }};font-family: 'Roboto';letter-spacing: .2rem;font-size: 1.15rem;">
+                style="text-transform: uppercase;color: {{ config('meta.colors.primary', '#000') }};font-family: 'Roboto';letter-spacing: .2rem;">
                 {{ config('app.name') }}
             </p>
 
