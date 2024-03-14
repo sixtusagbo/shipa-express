@@ -58,7 +58,7 @@
                                                     <p>
                                                         Confirm deletion of status:
                                                         <strong>[{{ $status->stage }}]</strong>
-                                                        [{{ $status->location }}]
+                                                        {{ $status->location }}
                                                     </p>
                                                     <form method="POST"
                                                         action="{{ route('statuses.destroy', $status->id) }}">

@@ -48,7 +48,12 @@ class StatusController extends Controller
      */
     public function edit(Status $status)
     {
-        //
+        $data = [
+            'icons' => Icon::all(),
+            'status' => $status,
+        ];
+
+        return view('status.edit')->with($data);
     }
 
     /**
