@@ -10,8 +10,10 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-                    <form action="/shipments" method="POST">
+                    <form action="/shipments/{{ $shipment->id }}" method="POST">
                         @csrf
+                        @method('PUT')
+
                         <p class="lead fst-italic fs-6 text-primary">Required fields are marked with asterisk</p>
 
                         <div class="row g-3">
@@ -31,7 +33,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="origin" placeholder="Origin"
-                                        name="origin" value="{{ $shipment->origin }}">
+                                        name="origin" value="{{ old('origin', $shipment->origin) }}">
                                     <label for="origin">Origin<span class="text-primary">*</span></label>
                                 </div>
                                 @error('origin')
@@ -43,7 +45,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="shipper_name"
                                         placeholder="Shipper Name" name="shipper_name"
-                                        value="{{ $shipment->shipper_name }}">
+                                        value="{{ old('shipper_name', $shipment->shipper_name) }}">
                                     <label for="shipper_name">Shipper Name<span class="text-primary">*</span></label>
                                 </div>
                                 @error('shipper_name')
@@ -55,7 +57,7 @@
                                 <div class="form-floating">
                                     <input type="tel" class="form-control" id="shipper_phone"
                                         placeholder="Shipper Phone" name="shipper_phone"
-                                        value="{{ $shipment->shipper_phone }}">
+                                        value="{{ old('shipper_phone', $shipment->shipper_phone) }}">
                                     <label for="shipper_phone">Shipper Phone</label>
                                 </div>
                             </div>
@@ -64,7 +66,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="shipper_address"
                                         placeholder="Shipper Address" name="shipper_address"
-                                        value="{{ $shipment->shipper_address }}">
+                                        value="{{ old('shipper_address', $shipment->shipper_address) }}">
                                     <label for="shipper_address">Shipper Address<span
                                             class="text-primary">*</span></label>
                                 </div>
@@ -73,13 +75,11 @@
                                 @enderror
                             </div>
 
-
-
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="recipient_name"
                                         placeholder="Recipient Name" name="recipient_name"
-                                        value="{{ $shipment->recipient_name }}">
+                                        value="{{ old('recipient_name', $shipment->recipient_name) }}">
                                     <label for="recipient_name">Recipient Name<span
                                             class="text-primary">*</span></label>
                                 </div>
@@ -92,7 +92,7 @@
                                 <div class="form-floating">
                                     <input type="tel" class="form-control" id="recipient_phone"
                                         placeholder="Recipient Phone" name="recipient_phone"
-                                        value="{{ $shipment->recipient_phone }}">
+                                        value="{{ old('recipient_phone', $shipment->recipient_phone) }}">
                                     <label for="recipient_phone">Recipient Phone</label>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="recipient_address"
                                         placeholder="Recipient Address" name="recipient_address"
-                                        value="{{ $shipment->recipient_address }}">
+                                        value="{{ old('recipient_address', $shipment->recipient_address) }}">
                                     <label for="recipient_address">Recipient Address<span
                                             class="text-primary">*</span></label>
                                 </div>
@@ -114,7 +114,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="destination"
                                         placeholder="Destination" name="destination"
-                                        value="{{ $shipment->destination }}">
+                                        value="{{ old('destination', $shipment->destination) }}">
                                     <label for="destination">Destination<span class="text-primary">*</span></label>
                                 </div>
                                 @error('destination')
@@ -127,7 +127,7 @@
                                     <select class="form-control" id="type" name="type">
                                         <option value="">Select Type</option>
                                         @foreach (['Parcel', 'Documents', 'Sentiments'] as $type)
-                                            <option @if ($shipment->type === $type) selected @endif
+                                            <option @if (old('type', $shipment->type) === $type) selected @endif
                                                 value="{{ $type }}">
                                                 {{ $type }}
                                             </option>
@@ -143,7 +143,7 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="weight" placeholder="Weight"
-                                        name="weight" value="{{ $shipment->weight }}">
+                                        name="weight" value="{{ old('weight', $shipment->weight) }}">
                                     <label for="weight">Weight<span class="text-primary">*</span></label>
                                 </div>
                                 @error('weight')
@@ -156,7 +156,7 @@
                                     <select class="form-control" id="mode" name="mode">
                                         <option value="">Select Mode</option>
                                         @foreach (['Air', 'Road', 'Sea', 'Train'] as $mode)
-                                            <option @if ($shipment->mode === $mode) selected @endif
+                                            <option @if (old('mode', $shipment->mode) === $mode) selected @endif
                                                 value="{{ $mode }}">
                                                 {{ $mode }}
                                             </option>
@@ -173,7 +173,7 @@
                                 <div class="form-floating">
                                     <input type="number" class="form-control" id="customs_cost"
                                         placeholder="Customs Cost" name="customs_cost"
-                                        value="{{ $shipment->customs_cost }}" step=".01">
+                                        value="{{ old('customs_cost', $shipment->customs_cost) }}" step=".01">
                                     <label for="customs_cost">Customs Cost<span class="text-primary">*</span></label>
                                 </div>
                                 @error('customs_cost')
@@ -184,7 +184,8 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="carrier"
-                                        placeholder="Carrier Name" name="carrier" value="{{ $shipment->carrier }}">
+                                        placeholder="Carrier Name" name="carrier"
+                                        value="{{ old('carrier', $shipment->carrier) }}">
                                     <label for="carrier">Carrier Name</label>
                                 </div>
                             </div>
@@ -193,7 +194,7 @@
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="invoice_number"
                                         placeholder="Invoice Number" name="invoice_number"
-                                        value="{{ $shipment->invoice_number }}">
+                                        value="{{ old('invoice_number', $shipment->invoice_number) }}">
                                     <label for="invoice_number">Invoice Number<span
                                             class="text-primary">*</span></label>
                                 </div>
@@ -206,7 +207,7 @@
                                 <div class="form-floating">
                                     <input type="datetime-local" class="form-control" id="eta"
                                         placeholder="Estimated Time of Arrival" name="eta"
-                                        value="{{ $shipment->eta }}">
+                                        value="{{ old('eta', $shipment->eta) }}">
                                     <label for="eta">Estimated Time of Arrival (ETA)</label>
                                 </div>
                                 @error('eta')
@@ -218,7 +219,7 @@
                                 <div class="form-floating">
                                     <input type="date" class="form-control" id="booked_on"
                                         placeholder="Date Booked" name="booked_on"
-                                        value="{{ $shipment->booked_on }}">
+                                        value="{{ old('booked_on', $shipment->booked_on) }}">
                                     <label for="booked_on">Date Booked</label>
                                 </div>
                                 @error('booked_on')
@@ -230,7 +231,7 @@
                                 <div class="form-floating">
                                     <input type="time" class="form-control" id="booked_at"
                                         placeholder="Time Booked" name="booked_at"
-                                        value="{{ $shipment->booked_at }}">
+                                        value="{{ old('booked_at', $shipment->booked_at) }}">
                                     <label for="booked_at">Time Booked</label>
                                 </div>
                                 @error('booked_at')
@@ -242,7 +243,7 @@
                                 <div class="form-floating">
                                     <input type="date" class="form-control" id="shipped_on"
                                         placeholder="Date Shipped" name="shipped_on"
-                                        value="{{ $shipment->shipped_on }}">
+                                        value="{{ old('shipped_on', $shipment->shipped_on) }}">
                                     <label for="shipped_on">Date Shipped</label>
                                 </div>
                                 @error('shipped_on')
@@ -254,7 +255,7 @@
                                 <div class="form-floating">
                                     <input type="time" class="form-control" id="shipped_at"
                                         placeholder="Time Shipped" name="shipped_at"
-                                        value="{{ $shipment->shipped_at }}">
+                                        value="{{ old('shipped_at', $shipment->shipped_at) }}">
                                     <label for="shipped_at">Time Shipped</label>
                                 </div>
                                 @error('shipped_at')
@@ -266,7 +267,7 @@
                                 <div class="form-floating">
                                     <input type="date" class="form-control" id="delivered_on"
                                         placeholder="Date Delivered" name="delivered_on"
-                                        value="{{ $shipment->delivered_on }}">
+                                        value="{{ old('delivered_on', $shipment->delivered_on) }}">
                                     <label for="delivered_on">Date Delivered</label>
                                 </div>
                                 @error('delivered_on')
@@ -278,7 +279,7 @@
                                 <div class="form-floating">
                                     <input type="time" class="form-control" id="delivered_at"
                                         placeholder="Time Delivered" name="delivered_at"
-                                        value="{{ $shipment->delivered_at }}">
+                                        value="{{ old('delivered_at', $shipment->delivered_at) }}">
                                     <label for="delivered_at">Time Delivered</label>
                                 </div>
                                 @error('delivered_at')
@@ -289,8 +290,8 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="pod"
-                                        placeholder="Proof of Delivery" name="pod" value="{{ $shipment->pod }}"
-                                        aria-describedby="podHelpBlock">
+                                        placeholder="Proof of Delivery" name="pod"
+                                        value="{{ old('pod', $shipment->pod) }}" aria-describedby="podHelpBlock">
                                     <label for="pod">Proof of Delivery (POD)</label>
                                     <div id="podHelpBlock" class="form-text">
                                         Please upload the proof of delivery to any cloud storage of your choice (Google

@@ -50,9 +50,9 @@ class ShipmentController extends Controller
             'booked_on' => 'required|date',
             'shipped_on' => 'nullable|date',
             'delivered_on' => 'nullable|date',
-            'booked_at' => 'required|date_format:H:i',
-            'shipped_at' => 'nullable|date_format:H:i',
-            'delivered_at' => 'nullable|date_format:H:i',
+            'booked_at' => 'required',
+            'shipped_at' => 'nullable',
+            'delivered_at' => 'nullable',
         ]);
 
         $shipment = Shipment::create($fields);
@@ -62,7 +62,7 @@ class ShipmentController extends Controller
             'remarks' => 'Order has been inbounded.',
         ]);
 
-        return redirect('/')->with('message', 'Shipment created successfully!');
+        return redirect('/manage-shipments')->with('message', 'Shipment created successfully!');
     }
 
     /**
@@ -76,9 +76,37 @@ class ShipmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Shipment $shipment)
+    public function update(Shipment $shipment)
     {
-        //
+        $fields = request()->validate([
+            'tracking_number' => 'required|regex:' . '/' . Shipment::trackingNumberValidationRegex() . '/',
+            'shipper_name' => 'required|different:recipient_name',
+            'shipper_address' => 'required|string|min:2|max:255|different:recipient_address',
+            'shipper_phone' => 'nullable|different:recipient_phone',
+            'origin' => 'required|different:destination',
+            'recipient_name' => 'required|different:shipper_name',
+            'recipient_address' => 'required|string|min:2|max:255|different:shipper_address',
+            'recipient_phone' => 'nullable|different:shipper_phone',
+            'destination' => 'required|different:origin',
+            'type' => 'required|in:Parcel,Documents,Sentiments',
+            'weight' => 'required',
+            'mode' => 'required|in:Air,Road,Sea,Train',
+            'customs_cost' => 'required',
+            'carrier' => 'nullable|string|min:3|max:255',
+            'invoice_number' => 'required',
+            'pod' => 'nullable|url',
+            'eta' => 'nullable',
+            'booked_on' => 'required|date',
+            'shipped_on' => 'nullable|date',
+            'delivered_on' => 'nullable|date',
+            'booked_at' => 'required',
+            'shipped_at' => 'nullable',
+            'delivered_at' => 'nullable',
+        ]);
+
+        $shipment->update($fields);
+
+        return redirect('/manage-shipments')->with('message', 'Shipment updated successfully!');
     }
 
     /**
