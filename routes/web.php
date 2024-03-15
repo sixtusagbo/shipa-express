@@ -52,8 +52,8 @@ Route::get('mimi_optimize', function () {
   return redirect('/');
 });
 
-Route::get('mimi_migrate_refresh', function () {
-  Artisan::call('migrate:refresh', [
+Route::get('mimi_migrate', function () {
+  Artisan::call('migrate', [
     '--force' => true
   ]);
   Artisan::call('db:seed', [
@@ -63,8 +63,11 @@ Route::get('mimi_migrate_refresh', function () {
   return redirect('/');
 });
 
-Route::get('mimi_migrate', function () {
-  Artisan::call('migrate', [
+Route::get('mimi_migrate_refresh', function () {
+  Artisan::call('migrate:refresh', [
+    '--force' => true
+  ]);
+  Artisan::call('db:seed', [
     '--force' => true
   ]);
 

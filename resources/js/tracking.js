@@ -135,7 +135,7 @@ if (location.pathname === "/monitor-shipment") {
                         value = currencyFormatter.format(value);
                     }
                     if (key === "pod") {
-                        value = `<image src="${value}" alt="pod" />`;
+                        value = `<image src="${value}" alt="pod" style="width:100%;" />`;
                     }
                     if (key === "eta") value = moment(value).fromNow();
                     if (key === "booked_on") value = moment(value).format("LL");
