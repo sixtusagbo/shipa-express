@@ -9,6 +9,16 @@ use Illuminate\Support\Facades\Log;
 class ShipmentController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('restrict.demo')->only(['store', 'update', 'destroy']);
+    }
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
