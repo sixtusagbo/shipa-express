@@ -2,12 +2,12 @@
 
 return [
   'company' => [
-    'address' => '123 Main St, New York, NY 10030',
-    'phone' => '+012 345 6789',
-    'email' => 'support@shipa.com',
+    'address' => '',
+    'phone' => '+047 522 9324',
+    'email' => 'support@zinxpress.com',
   ],
   'admin' => [
-    'email' => 'miracleagbosixtus@gmail.com',
+    'email' => 'mail.mirolic@gmail.com',
   ],
   'socials' => [
     'display' => false,

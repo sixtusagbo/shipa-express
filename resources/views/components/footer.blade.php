@@ -1,9 +1,13 @@
 <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
     <div class="container py-5">
         <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Address</h4>
-                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ config('meta.company.address') }}</p>
+                @if (config('meta.company.address'))
+                    <p class="mb-2">
+                        <i class="fa fa-map-marker-alt me-3"></i>{{ config('meta.company.address') }}
+                    </p>
+                @endif
                 <a class="mb-2 d-block" href="tel:{{ str_replace(' ', '', config('meta.company.phone')) }}"><i
                         class="fa fa-phone-alt me-3"></i>{{ config('meta.company.phone') }}</a>
                 <a class="mb-2 d-block" href="mailto:{{ config('meta.company.email') }}"><i
@@ -21,18 +25,13 @@
                     </div>
                 @endif
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Explore</h4>
                 <a class="btn btn-link" href="/monitor-shipment">Track</a>
                 <a class="btn btn-link" href="/contact">Contact</a>
                 <a class="btn btn-link" href="/#about">About</a>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="text-light mb-4">Legal</h4>
-                <a class="btn btn-link" href="/terms-of-use">Terms of Service</a>
-                <a class="btn btn-link" href="/privacy-policy">Privacy Policy</a>
-            </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Language</h4>
                 <p>Select your language</p>
                 <div id="ytWidget"></div>
