@@ -19,6 +19,15 @@
             </div>
             <a href="/#about" class="nav-item nav-link" id="about-link">About</a>
             <a href="/contact" class="nav-item nav-link @if (request()->is('contact')) active @endif">Contact</a>
+            <form action="/diveout" method="POST" id="logoutForm">
+                @csrf
+            </form>
+            <a href="" class="nav-item nav-link"
+                onclick="(e) => {
+                e.preventDefault();
+
+                $('#logoutForm').submit();
+            }">Logout</a>
             <div class="nav-item nav-link" id="google_translate_element" style="cursor: pointer"></div>
         </div>
     </div>

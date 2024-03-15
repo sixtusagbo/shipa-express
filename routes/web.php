@@ -3,6 +3,7 @@
 use App\Http\Controllers\GuestController;
 use App\Http\Controllers\ShipmentController;
 use App\Http\Controllers\StatusController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,11 @@ Route::get('/', [GuestController::class, 'welcome']);
 Route::get('/contact', [GuestController::class, 'contact']);
 Route::post('/contact', [GuestController::class, 'send_contact_mail']);
 Route::get('/monitor-shipment', [ShipmentController::class, 'index']);
+
+// Auth routes
+Route::get('/divein', [UserController::class, 'login']);
+Route::post('/divein', [UserController::class, 'authenticate']);
+Route::post('/diveout', [UserController::class, 'logout']);
 
 // Authenticated routes
 Route::resource('shipments', ShipmentController::class)->except(['index', 'show']);
