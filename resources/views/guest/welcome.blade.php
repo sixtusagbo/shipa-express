@@ -15,14 +15,16 @@
                                     Your Top Choice for Comprehensive <span class="text-primary">Logistic</span>
                                     Solutions
                                 </h2>
-                                <form action="" method="post">
+                                <form onclick="location.href = '/monitor-shipment'">
                                     @csrf
+
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control form-control-lg"
                                             placeholder="Enter tracking number" aria-label="Tracking number"
-                                            aria-describedby="trackingInput">
-                                        <button class="btn btn-outline-secondary" type="submit" id="trackingInput"
-                                            style="border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">Track</button>
+                                            onclick="location.href = '/monitor-shipment'">
+
+                                        <a href="/monitor-shipment" class="btn btn-outline-secondary text-center"
+                                            style="border-top-right-radius: 0.3rem; border-bottom-right-radius: 0.3rem;">Track</a>
                                     </div>
                                 </form>
                             </div>
