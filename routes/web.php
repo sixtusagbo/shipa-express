@@ -24,17 +24,20 @@ Route::get('/contact', [GuestController::class, 'contact']);
 Route::post('/contact', [GuestController::class, 'send_contact_mail']);
 Route::get('/monitor-shipment', [ShipmentController::class, 'index']);
 
-// Auth routes
-Route::get('/divein', [UserController::class, 'login']);
-Route::post('/divein', [UserController::class, 'authenticate']);
-Route::post('/diveout', [UserController::class, 'logout']);
+Route::middleware('guest')->group(function () {
+  Route::get('/divein', [UserController::class, 'login'])->name('login');
+  Route::post('/divein', [UserController::class, 'authenticate']);
+});
 
 // Authenticated routes
-Route::resource('shipments', ShipmentController::class)->except(['index', 'show']);
-Route::get('/manage-shipments', [ShipmentController::class, 'manage']);
-Route::get('/shipments/{shipment}/statuses', [ShipmentController::class, 'statuses']);
-Route::resource('statuses', StatusController::class)->except(['index', 'show', 'create']);
-Route::get('/shipments/{shipment}/statuses/create', [StatusController::class, 'create']);
+Route::middleware('auth')->group(function () {
+  Route::resource('shipments', ShipmentController::class)->except(['index', 'show']);
+  Route::get('/manage-shipments', [ShipmentController::class, 'manage']);
+  Route::get('/shipments/{shipment}/statuses', [ShipmentController::class, 'statuses']);
+  Route::resource('statuses', StatusController::class)->except(['index', 'show', 'create']);
+  Route::get('/shipments/{shipment}/statuses/create', [StatusController::class, 'create']);
+  Route::post('/diveout', [UserController::class, 'logout']);
+});
 
 // Mimi routes
 Route::get('mimi_clear_config', function () {
