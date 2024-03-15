@@ -8,6 +8,7 @@ use App\Models\Shipment;
 use App\Models\Status;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,12 +20,19 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'Mirolic Miralo',
             'email' => 'mail.mirolic@gmail.com',
-            'password' => '$2y$12$I6aUcgvZXmPt01CoD3l9TOLG7yKPrH7R2u5SGe075sJshBNx.A9zy' // devPast@24
+            'password' => Hash::make('devPast@24'),
+            'type' => 'admin',
         ]);
 
         User::factory()->create([
             'email' => 'mamin@shipa.com',
-            'password' => '$2y$12$AKGcoha7Uz41ascNLmZx3eG0gBGp6CehhbbLychq2DHPlXUnJL9.m' // shiMin71
+            'password' => Hash::make('shiMin71'),
+            'type' => 'admin',
+        ]);
+
+        User::factory()->create([
+            'email' => 'demfoo@shipa.com',
+            'type' => 'demo',
         ]);
 
         $this->call(IconSeeder::class);

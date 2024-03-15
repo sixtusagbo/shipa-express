@@ -14,6 +14,16 @@ use Illuminate\Validation\Rule;
 class StatusController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('restrict.demo')->only(['store', 'update', 'destroy']);
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
     public function create(Shipment $shipment)

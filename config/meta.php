@@ -40,4 +40,7 @@ return [
   'colors' => [
     'primary' => '#FF3E41',
   ],
+  'demo' => [
+    'forbidden' => 'Demo user is not allowed to perform this action',
+  ],
 ];
