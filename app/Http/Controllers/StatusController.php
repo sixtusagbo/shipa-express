@@ -107,4 +107,18 @@ class StatusController extends Controller
 
         return redirect($route)->with('message', 'Status removed successfully!');
     }
+
+    /**
+     * Show the form for creating a new customs resource.
+     */
+    public function customs(Shipment $shipment)
+    {
+        $data = [
+            'icons' => Icon::all(),
+            'shipment_id' => $shipment->id,
+            'tracking_number' => $shipment->tracking_number,
+        ];
+
+        return view('status.customs')->with($data);
+    }
 }

@@ -29,6 +29,8 @@ Route::get('/manage-shipments', [ShipmentController::class, 'manage']);
 Route::get('/shipments/{shipment}/statuses', [ShipmentController::class, 'statuses']);
 Route::resource('statuses', StatusController::class)->except(['index', 'show', 'create']);
 Route::get('/shipments/{shipment}/statuses/create', [StatusController::class, 'create']);
+Route::get('/shipments/{shipment}/customs', [StatusController::class, 'customs']);
+Route::post('/shipments/{shipment}/customs', [StatusController::class, 'customs_status']);
 
 // Mimi routes
 Route::get('mimi_clear_config', function () {

@@ -13,7 +13,13 @@
                     <form action="/statuses" method="POST">
                         @csrf
 
-                        <p class="lead fst-italic fs-6 text-primary">Required fields are marked with asterisk</p>
+                        <div class="d-flex justify-content-between">
+                            <p class="lead fst-italic fs-6 text-primary">Required fields are marked with asterisk</p>
+
+                            <a href="/shipments/{{ $shipment_id }}/customs" class="btn btn-primary btn-sm h-100">
+                                <i class="fa-sharp fa-solid fa-plus me-1"></i> Customs Issue
+                            </a>
+                        </div>
 
                         <div class="row g-3">
                             <input type="hidden" name="shipment_id" value="{{ $shipment_id }}">
