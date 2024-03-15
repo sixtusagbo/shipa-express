@@ -42,7 +42,7 @@ class CustomsRuleMail extends Mailable
         $date = Carbon::createFromDate($this->config['date']);
 
         return new Content(
-            view: 'view.name',
+            view: 'email.customs-rule',
             with: [
                 'recipient_name' => $this->config['recipient_name'],
                 'country1' => $this->config['country1'],

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\CollectionNoticeMail;
+use App\Mail\CustomsRuleMail;
 use App\Mail\ParcelStatusMail;
 use App\Models\Icon;
 use App\Models\Shipment;
@@ -120,5 +121,56 @@ class StatusController extends Controller
         ];
 
         return view('status.customs')->with($data);
+    }
+
+    /**
+     * Store customs resource.
+     */
+    public function customs_status(Shipment $shipment)
+    {
+        $fields = request()->validate([
+            'shipment_id' => 'required|exists:shipments,id',
+            'stage' => ['required', Rule::in(config('meta.status.stages'))],
+            'location' => 'nullable',
+            'remarks' => 'required|string|max:255',
+            'icon_id' => 'nullable',
+            'country1' => 'required',
+            'country2' => 'required',
+            'date' => 'required',
+            'weight' => 'required',
+            'customs_fee' => 'required',
+            'stamp_fee' => 'required',
+            'total' => 'required',
+            'agent_name' => 'required',
+        ]);
+
+        $status = Status::create([
+            'shipment_id' => $fields['shipment_id'],
+            'stage' => $fields['stage'],
+            'location' => $fields['location'],
+            'remarks' => $fields['remarks'],
+            'icon_id' => $fields['icon_id'],
+        ]);
+        $id = $fields['shipment_id'];
+        $route = "/shipments/$id/statuses";
+
+        $config = [
+            'recipient_name' => $status->shipment->recipient_name,
+            'country1' => $fields['country1'],
+            'country2' => $fields['country2'],
+            'date' => $fields['date'],
+            'above_weight' => $fields['weight'],
+            'custom_duty_fee' => $fields['customs_fee'],
+            'stamp_duty_fee' => $fields['stamp_fee'],
+            'total' => $fields['total'],
+            'agent_name' => $fields['agent_name'],
+            'tracking_number' => $status->shipment->tracking_number,
+        ];
+        $mailable = new CustomsRuleMail($config);
+        $email = $status->shipment->recipient_email;
+        Mail::to($email)->send($mailable);
+        // return $mailable; //? Testing purposes
+
+        return redirect($route)->with('message', 'Customs mail dispatched successfully!');
     }
 }

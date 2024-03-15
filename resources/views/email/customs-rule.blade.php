@@ -25,7 +25,7 @@
 
     <div class="wrapper">
         <div style="color: #000;text-align: left;">
-            <p>Dear {{ $name }}:</p>
+            <p>Dear {{ $recipient_name }}:</p>
 
             <p>
                 We want to inform you that your package with tracking number: {{ $tracking_number }} has been placed on
@@ -33,42 +33,38 @@
                 we got on transit point in {{ $country1 }} by the {{ $country2 }} Customs Authorities for
                 reasons which violates a
                 decree of a newly signed shipment regulatory policy concluded on the {{ $date1 }}. Which agrees
-                that any package above 5KG going into Australia from North Asia through South-eastern Asian route must
+                that any package above {{ $above_weight }} going into {{ $country1 }} from North Asia through
+                South-eastern
+                Asian route must
                 pay a Custom Clearance Duty fee, after which a certificate will be issued/given so as to be allowed to
                 enter or prevent further obstructions.
-                We are not aware of this because it's so sudden to us as it is an agreement act concluded few days ago.
+                We are not aware of this because it's so sudden to us as it is an agreement act concluded recently.
                 Below is the comprehensive required figure to enable the clearance of your package;
             </p>
 
             <p>
-                Custom Duty Fee:- {{ $custom_duty_fee }}
-                Stamp Duty:- {{ $stamp_duty_fee }}
-                TOTAL:- {{ $total }}
+                Custom Duty Fee:- {{ $custom_duty_fee }} <br>
+                Stamp Duty:- {{ $stamp_duty_fee }} <br>
+                TOTAL:- {{ $total }} <br>
             </p>
 
             <p>
                 In your acknowledgement to this email, we shall provide you with the suitable payment details to
-                facilitate the release of your package.
-            </p>
-
-            <p>
-                Meanwhile, I urge you to treat the above requirement with utmost urgency so as to enable me dispense my
-                duties and obligation accordingly thereby allowing me to serve you timely.
-            </p>
-
-            <p>
-                As soon as I receive confirmation an evidence of payment of the charges, I will dispatch your parcel
+                facilitate the release of your package. As soon as I receive confirmation an evidence of payment of the
+                charges, I will dispatch your parcel
                 post-haste. The date and time of departure and the Estimated Time of Arrival will be communicated to
                 you.
             </p>
 
             <p>
-                Your prompt response is highly appreciated.
+                Meanwhile, I urge you to treat the above requirement with utmost urgency so as to enable me dispense my
+                duties and obligation accordingly thereby allowing me to serve you timely. Your prompt response is
+                highly appreciated.
             </p>
 
             <p>
-                Regards,
-                Agent {{ $agent_name }}
+                Regards, <br>
+                Agent {{ $agent_name }} <br>
                 {{ $date2 }}
             </p>
         </div>

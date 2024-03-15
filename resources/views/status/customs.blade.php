@@ -10,7 +10,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-                    <form action="/statuses" method="POST">
+                    <form action="/shipments/{{ $shipment_id }}/customs" method="POST">
                         @csrf
 
                         <div class="d-flex justify-content-between">
@@ -134,11 +134,25 @@
 
                             <div class="col-md-6">
                                 <div class="form-floating">
+                                    <input type="text" class="form-control" id="agent_name"
+                                        placeholder="Agent Name" name="agent_name" value="{{ old('agent_name') }}">
+                                    <label for="agent_name">Agent Name<span class="text-primary">*</span></label>
+                                </div>
+                                @error('agent_name')
+                                    <x-error>Please enter the agent's name</x-error>
+                                @enderror
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
                                     <input type="text" class="form-control" id="customs_fee"
                                         placeholder="Customs Fee" name="customs_fee"
-                                        value="{{ old('customs_fee') }}">
+                                        value="{{ old('customs_fee') }}" aria-describedby="customs_feeHelpBlock">
                                     <label for="customs_fee">Customs Duty Fee<span
                                             class="text-primary">*</span></label>
+                                    <div id="customs_feeHelpBlock" class="form-text">
+                                        Example 3000 USD
+                                    </div>
                                 </div>
                                 @error('customs_fee')
                                     <x-error>{{ $message }}</x-error>
@@ -148,9 +162,12 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="stamp_fee"
-                                        placeholder="Stamp Duty Fee" name="stamp_fee"
-                                        value="{{ old('stamp_fee') }}">
+                                        placeholder="Stamp Duty Fee" name="stamp_fee" value="{{ old('stamp_fee') }}"
+                                        aria-describedby="stamp_feeHelpBlock">
                                     <label for="stamp_fee">Stamp Duty Fee<span class="text-primary">*</span></label>
+                                    <div id="stamp_feeHelpBlock" class="form-text">
+                                        Example 500 USD
+                                    </div>
                                 </div>
                                 @error('stamp_fee')
                                     <x-error>{{ $message }}</x-error>
@@ -160,22 +177,15 @@
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" id="total"
-                                        placeholder="Total Fees" name="total" value="{{ old('total') }}">
+                                        placeholder="Total Fees" name="total" value="{{ old('total') }}"
+                                        aria-describedby="totalHelpBlock">
                                     <label for="total">Total Fees<span class="text-primary">*</span></label>
+                                    <div id="totalHelpBlock" class="form-text">
+                                        Example 3500 USD
+                                    </div>
                                 </div>
                                 @error('total')
                                     <x-error>{{ $message }}</x-error>
-                                @enderror
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control" id="agent_name"
-                                        placeholder="Agent Name" name="agent_name" value="{{ old('agent_name') }}">
-                                    <label for="agent_name">Agent Name<span class="text-primary">*</span></label>
-                                </div>
-                                @error('agent_name')
-                                    <x-error>Please enter the agent's name</x-error>
                                 @enderror
                             </div>
 
