@@ -37,8 +37,6 @@
 
     <link href="{{ asset('third-party/animate/animate.min.css') }}" rel="stylesheet">
     <link href="{{ asset('third-party/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
-    {{-- <link href="{{ asset('css/bootstrap.min.css') }}?v={{ time() }}" rel="stylesheet"> --}}
-    {{-- <link href="{{ asset('css/style.css') }}?v={{ time() }}" rel="stylesheet"> --}}
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css">
     @vite('resources/sass/bootstrap.scss')
     @vite('resources/css/design.css')
@@ -83,7 +81,6 @@
 
     {{-- Scripts --}}
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('third-party/wow/wow.min.js') }}"></script>
     <script src="{{ asset('third-party/easing/easing.min.js') }}"></script>
     <script src="{{ asset('third-party/waypoints/waypoints.min.js') }}"></script>

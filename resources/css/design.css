@@ -219,7 +219,7 @@
 }
 
 .page-header {
-  background: linear-gradient(rgba(6, 3, 21, .5), rgba(6, 3, 21, .5)), url(../images/carousel-1.jpg) center center no-repeat;
+  background: linear-gradient(rgba(6, 3, 21, .5), rgba(6, 3, 21, .5)), url(../../images/carousel-1.jpg) center center no-repeat;
   background-size: cover;
 }
 
@@ -418,7 +418,7 @@
 
 /*** Footer ***/
 .footer {
-  background: linear-gradient(rgba(6, 3, 21, .5), rgba(6, 3, 21, .5)), url(../images/map.png) center center no-repeat;
+  background: linear-gradient(rgba(6, 3, 21, .5), rgba(6, 3, 21, .5)), url(../../images/map.png) center center no-repeat;
   background-size: cover;
 }
 
