@@ -10,24 +10,26 @@
             <a href="/" class="nav-item nav-link @if (request()->is('/')) active @endif">Home</a>
             <a href="/monitor-shipment"
                 class="nav-item nav-link @if (request()->is('monitor-shipment')) active @endif">Track</a>
-            <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shipping</a>
-                <div class="dropdown-menu fade-up m-0">
-                    <a href="/shipments/create" class="dropdown-item">Ship Now</a>
-                    <a href="/manage-shipments" class="dropdown-item">Manage</a>
+            @auth
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shipping</a>
+                    <div class="dropdown-menu fade-up m-0">
+                        <a href="/shipments/create" class="dropdown-item">Ship Now</a>
+                        <a href="/manage-shipments" class="dropdown-item">Manage</a>
+                    </div>
                 </div>
-            </div>
+            @endauth
             <a href="/#about" class="nav-item nav-link" id="about-link">About</a>
             <a href="/contact" class="nav-item nav-link @if (request()->is('contact')) active @endif">Contact</a>
-            <form action="/diveout" method="POST" id="logoutForm">
-                @csrf
-            </form>
-            <a href="" class="nav-item nav-link"
-                onclick="(e) => {
-                e.preventDefault();
+            @auth
+                <form action="/diveout" method="POST">
+                    @csrf
 
-                $('#logoutForm').submit();
-            }">Logout</a>
+                    <button class="nav-item nav-link" type="submit" style="cursor: pointer">
+                        Logout
+                    </button>
+                </form>
+            @endauth
             <div class="nav-item nav-link" id="google_translate_element" style="cursor: pointer"></div>
         </div>
     </div>
