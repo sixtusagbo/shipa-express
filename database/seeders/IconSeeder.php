@@ -14,13 +14,17 @@ class IconSeeder extends Seeder
     public function run(): void
     {
         $iconNames = [
+            'fa-solid fa-check',
+            'fa-solid fa-user',
+            'fa-solid fa-box',
+            'fa-solid fa-box-check',
+            'fa-sharp fa-solid fa-cubes-stacked',
             'fa-sharp fa-solid fa-truck-fast',
+            'fa-sharp fa-solid fa-xmark',
             'fa-sharp fa-solid fa-car',
             'fa-solid fa-gears',
             'fa-sharp fa-solid fa-truck',
             'fa-solid fa-box-circle-check',
-            'fa-solid fa-box-check',
-            'fa-solid fa-box',
             'fa-solid fa-magnifying-glass',
             'fa-sharp fa-regular fa-magnifying-glass',
             'fa-solid fa-chart-simple',
@@ -43,7 +47,6 @@ class IconSeeder extends Seeder
             'fa-solid fa-hand-holding-box',
             'fa-solid fa-gas-pump',
             'fa-solid fa-ferry',
-            'fa-solid fa-user',
         ];
 
         foreach ($iconNames as $name) {

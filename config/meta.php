@@ -5,6 +5,7 @@ return [
     'address' => '',
     'phone' => '+047 522 9324',
     'email' => 'support@zinxpress.com',
+    'description' => 'International express delivery, Tracking and shipping solutions.',
   ],
   'admin' => [
     'email' => 'mail.mirolic@gmail.com',
@@ -35,7 +36,7 @@ return [
     'keep_invalid_numbers' => false,
   ],
   'status' => [
-    'stages' => ['Processing', 'Arrived', 'Departed', 'In Transit', 'On Hold', 'Customs Check', 'Delivered', 'Returned', 'Cancelled'],
+    'stages' => ['Processing', 'Arrived', 'Received', 'Loaded', 'Departed', 'In Transit', 'On Hold', 'Clearance', 'Delivered', 'Returned', 'Cancelled'],
   ],
   'colors' => [
     'primary' => '#FF3E41',
