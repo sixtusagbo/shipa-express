@@ -16,21 +16,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@500;700&display=swap"
         rel="stylesheet">
     {{-- Font Awesome Icons --}}
-    <link
-        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/all.min.css"
-        rel="stylesheet">
-    <link
-        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/sharp-thin.css"
-        rel="stylesheet">
-    <link
-        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/sharp-solid.css"
-        rel="stylesheet">
-    <link
-        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/sharp-regular.css"
-        rel="stylesheet">
-    <link
-        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.1-web/css/sharp-light.css"
-        rel="stylesheet">
+    <link href="{{ asset('faweb/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('faweb/css/sharp-thin.css') }}" rel="stylesheet">
+    <link href="{{ asset('faweb/css/sharp-solid.css') }}" rel="stylesheet">
+    <link href="{{ asset('faweb/css/sharp-regular.css') }}" rel="stylesheet">
+    <link href="{{ asset('faweb/css/sharp-light.css') }}" rel="stylesheet">
     {{-- Bootstrap Icons --}}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
