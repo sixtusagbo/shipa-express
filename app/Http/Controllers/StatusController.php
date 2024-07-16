@@ -21,7 +21,7 @@ class StatusController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('restrict.demo')->only(['store', 'update', 'destroy']);
+        $this->middleware('restrict.demo')->only(['store', 'update', 'destroy', 'customs_status']);
     }
 
     /**
